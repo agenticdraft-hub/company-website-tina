@@ -1,0 +1,42 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import Callout from './Callout.js';
+import Content from './Content.js';
+import Cta from './Cta.js';
+import Features from './Features.js';
+import Hero from './Hero.js';
+import Split from './Split.js';
+import Stats from './Stats.js';
+import Testimonial from './Testimonial.js';
+import Video from './Video.js';
+import ConstellationDivider from '../space/ConstellationDivider.js';
+import type { CmsPage } from '../../lib/data';
+
+interface Props {
+	data?: CmsPage | null;
+}
+
+const { data } = Astro.props;
+const blocks = (data?.blocks ?? []).filter(b => b !== null);
+---
+{blocks.map((block, i) => {
+	const rendered = (() => {
+		switch (block.__typename) {
+			case 'PageBlocksCallout': return <Callout data={block} />;
+			case 'PageBlocksContent': return <Content data={block} />;
+			case 'PageBlocksCta': return <Cta data={block} />;
+			case 'PageBlocksFeatures': return <Features data={block} />;
+			case 'PageBlocksHero': return <Hero data={block} />;
+			case 'PageBlocksSplit': return <Split data={block} />;
+			case 'PageBlocksStats': return <Stats data={block} />;
+			case 'PageBlocksTestimonial': return <Testimonial data={block} />;
+			case 'PageBlocksVideo': return <Video data={block} />;
+		}
+	})();
+	return (
+		<>
+			<div data-tina-field={tinaField(block)}>{rendered}</div>
+			{i < blocks.length - 1 && <ConstellationDivider class="my-2 opacity-70" />}
+		</>
+	);
+})}
