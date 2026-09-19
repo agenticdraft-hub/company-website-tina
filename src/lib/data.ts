@@ -12,11 +12,13 @@
 import { requestWithMetadata } from '@tinacms/astro/data';
 import client from '../../tina/__generated__/client';
 
-export const getConfig = () =>
-	requestWithMetadata(client.queries.config({ relativePath: 'config.json' }));
+// Each locale is a folder under the collection root, so the locale is part of
+// the relative path. Defaulting to 'en' keeps callers that predate i18n working.
+export const getConfig = (locale = 'en') =>
+	requestWithMetadata(client.queries.config({ relativePath: `${locale}/config.json` }));
 
-export const getHome = () =>
-	requestWithMetadata(client.queries.page({ relativePath: 'home.json' }), {
+export const getHome = (locale = 'en') =>
+	requestWithMetadata(client.queries.page({ relativePath: `${locale}/home.json` }), {
 		priority: 'primary',
 	});
 

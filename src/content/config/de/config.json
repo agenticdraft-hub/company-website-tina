@@ -1,0 +1,25 @@
+{
+  "seo": {
+    "title": "AgenticDraft",
+    "description": "AgenticDraft entwickelt gesteuerte agentische Automatisierung für Adobe Experience Manager und Edge Delivery Services.",
+    "siteOwner": "AgenticDraft",
+    "logo": "/agenticdraft-mark.png"
+  },
+  "nav": [
+    {
+      "title": "Ansatz",
+      "link": "#approach"
+    },
+    {
+      "title": "Workflow",
+      "link": "#workflow"
+    }
+  ],
+  "headerCta": {
+    "label": "Gespräch starten",
+    "href": "mailto:hello@agenticdraft.com"
+  },
+  "footer": {
+    "tagline": "AEM-Automatisierung von der Anforderung bis zum Release."
+  }
+}

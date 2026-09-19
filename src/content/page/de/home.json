@@ -1,0 +1,87 @@
+{
+  "seoTitle": "AgenticDraft — AEM-Automatisierung vom Ticket bis zur Produktion",
+  "seoDescription": "AgenticDraft entwickelt gesteuerte agentische Automatisierung für Adobe Experience Manager und Edge Delivery Services.",
+  "hero": {
+    "eyebrow": "AEM- und EDS-Automatisierung",
+    "headline": "Vom Ticket bis zur Produktion.",
+    "headlineAccent": "Ein gesteuerter Ablauf.",
+    "lede": "AgenticDraft verbindet Anforderungen, Design, Implementierung, Tests, Verifikation und Pull-Request-Vorbereitung in einem gesteuerten Workflow für Adobe Experience Manager-Teams.",
+    "primaryCta": {
+      "label": "Workflow erkunden",
+      "href": "#workflow"
+    },
+    "secondaryCta": {
+      "label": "Über Ihren AEM-Workflow sprechen",
+      "href": "mailto:hello@agenticdraft.com"
+    },
+    "video": {
+      "label": "AgenticDraft Produktübersicht",
+      "status": "Übersichtsvideo folgt in Kürze",
+      "meta": "16:9 · Übersichtsfilm"
+    },
+    "proofTitle": "Für AEM-Delivery konzipiert",
+    "proofItems": [
+      "Adobe Experience Manager",
+      "Edge Delivery Services",
+      "Multi-Agenten-Workflows",
+      "Design-to-Code"
+    ]
+  },
+  "approach": {
+    "eyebrow": "Warum AgenticDraft",
+    "heading": "Automatisierung, die Kontext",
+    "headingLine2": "durchgängig mitführt.",
+    "intro": "AEM-Delivery erstreckt sich über Tickets, Repositories, Designs, Inhalte, Browser und Release-Kontrollen. AgenticDraft verbindet diesen Arbeitskontext von einer Stufe zur nächsten.",
+    "principles": [
+      {
+        "title": "Konfigurationsgetrieben",
+        "body": "Ihre Build-Befehle, Konventionen und Branch-Regeln liegen in einer gemeinsamen Konfiguration – nicht in verstreuten Prompts."
+      },
+      {
+        "title": "Kontextverbunden",
+        "body": "Führt Work Items, Codebasen, Figma-Designs, Live-AEM-Inhalte und Browser-Nachweise zusammen."
+      },
+      {
+        "title": "Gesteuert von Grund auf",
+        "body": "Readiness-Checks, Validierungs-Gates, Accessibility-Reviews und Secret-Scans bleiben Teil des Workflows."
+      }
+    ]
+  },
+  "workflow": {
+    "eyebrow": "Der Workflow",
+    "heading": "Von den Anforderungen zum",
+    "headingLine2": "reviewbereiten Pull Request.",
+    "intro": "Durchlaufen Sie einen strukturierten Delivery-Lebenszyklus. Jede Stufe erzeugt dauerhafte Ergebnisse, die die nächste informieren.",
+    "steps": [
+      {
+        "title": "Anforderungen",
+        "body": "Ticket abrufen, Readiness prüfen, Anforderungen verdichten und die Codebasis recherchieren.",
+        "command": "/draft-req"
+      },
+      {
+        "title": "Design zu Code",
+        "body": "Design-Kontext extrahieren, einen konventionskonformen Prototyp erzeugen und die visuelle Treue verifizieren.",
+        "command": "/draft-design"
+      },
+      {
+        "title": "Planen + Bauen",
+        "body": "Implementierungsplan erstellen, Risiken klären und mit Review- und Test-Schleifen umsetzen.",
+        "command": "/draft-build"
+      },
+      {
+        "title": "Prüfen + Ausliefern",
+        "body": "Kompilieren, Linten, Testen, Scannen, Architektur prüfen und einen nachvollziehbaren Pull Request vorbereiten.",
+        "command": "/draft-ship"
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "Den Workflow auf Ihr Team zuschneiden",
+    "heading": "Ein gesteuerter AEM-Workflow,",
+    "headingAccent": "gebaut für Ihr Team.",
+    "cta": {
+      "label": "Gespräch starten",
+      "href": "mailto:hello@agenticdraft.com"
+    }
+  }
+}

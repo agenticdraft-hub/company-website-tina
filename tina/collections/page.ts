@@ -13,7 +13,8 @@ export const PageCollection: Collection = {
 	label: 'Home page',
 	path: 'src/content/page',
 	format: 'json',
-	match: { include: 'home' },
+	// Locale folders: `en/home`, `de/home`, …
+	match: { include: '*/home' },
 	ui: {
 		// Single page: the admin's "view page" link should go to the site root,
 		// not to `/home` (which is what the filename would otherwise produce).
