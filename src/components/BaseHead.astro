@@ -2,16 +2,27 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_META, localePath } from '../lib/i18n';
 
 interface Props {
 	title: string;
 	description: string;
 	image?: string;
+	locale?: string;
 }
+
+const {
+	title,
+	description,
+	image = '/agenticdraft-logo.png',
+	locale = DEFAULT_LOCALE,
+} = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = '/agenticdraft-logo.png' } = Astro.props;
+// Each locale's counterpart URL, for the hreflang alternates. A one-pager, so
+// every locale is a single page and the mapping is just the locale prefix.
+const alternateURL = (code: string) => new URL(localePath(code), Astro.site);
 ---
 
 <!--
@@ -46,6 +57,15 @@ const { title, description, image = '/agenticdraft-logo.png' } = Astro.props;
 <!-- Canonical URL -->
 <link rel="canonical" href={canonicalURL} />
 
+<!-- Language alternates: reciprocal links between locales, plus x-default
+     pointing at the default locale for unmatched visitors. -->
+{
+	LOCALES.map((code) => (
+		<link rel="alternate" hreflang={LOCALE_META[code].code} href={alternateURL(code)} />
+	))
+}
+<link rel="alternate" hreflang="x-default" href={alternateURL(DEFAULT_LOCALE)} />
+
 <!-- Primary Meta Tags -->
 <title>{title}</title>
 <meta name="title" content={title} />
@@ -57,6 +77,12 @@ const { title, description, image = '/agenticdraft-logo.png' } = Astro.props;
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
+<meta property="og:locale" content={LOCALE_META[locale as keyof typeof LOCALE_META]?.code ?? locale} />
+{
+	LOCALES.filter((code) => code !== locale).map((code) => (
+		<meta property="og:locale:alternate" content={LOCALE_META[code].code} />
+	))
+}
 
 <!-- Twitter -->
 <meta property="twitter:card" content="summary_large_image" />

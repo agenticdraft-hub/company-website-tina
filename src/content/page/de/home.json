@@ -5,7 +5,7 @@
     "eyebrow": "AEM- und EDS-Automatisierung",
     "headline": "Vom Ticket bis zur Produktion.",
     "headlineAccent": "Ein gesteuerter Ablauf.",
-    "lede": "AgenticDraft verbindet Anforderungen, Design, Implementierung, Tests, Verifikation und Pull-Request-Vorbereitung in einem gesteuerten Workflow für Adobe Experience Manager-Teams.",
+    "lede": "AgenticDraft verbindet Anforderungen, Design, Implementierung, Tests, Verifikation und Pull-Request-Vorbereitung in einem gesteuerten Workflow für Adobe-Experience-Manager-Teams.",
     "primaryCta": {
       "label": "Workflow erkunden",
       "href": "#workflow"
@@ -15,7 +15,7 @@
       "href": "mailto:hello@agenticdraft.com"
     },
     "video": {
-      "label": "AgenticDraft Produktübersicht",
+      "label": "AgenticDraft-Produktübersicht",
       "status": "Übersichtsvideo folgt in Kürze",
       "meta": "16:9 · Übersichtsfilm"
     },
@@ -49,9 +49,9 @@
   },
   "workflow": {
     "eyebrow": "Der Workflow",
-    "heading": "Von den Anforderungen zum",
-    "headingLine2": "reviewbereiten Pull Request.",
-    "intro": "Durchlaufen Sie einen strukturierten Delivery-Lebenszyklus. Jede Stufe erzeugt dauerhafte Ergebnisse, die die nächste informieren.",
+    "heading": "Von den Vorgaben zum",
+    "headingLine2": "fertigen Pull Request.",
+    "intro": "Durchlaufen Sie einen strukturierten Delivery-Lebenszyklus. Jede Stufe erzeugt dauerhafte Ergebnisse, auf denen die nächste aufbaut.",
     "steps": [
       {
         "title": "Anforderungen",

@@ -30,7 +30,13 @@ body.menu-open { overflow: hidden; }
 main { width: 100%; max-width: 1600px; margin-inline: auto; }
 section[id] { scroll-margin-top: 100px; }
 a { color: inherit; text-decoration: none; }
-main, section, article, div, nav, ul, ol, li { min-width: 0; }
+/* `p`/`h1`-`h3` included deliberately: they are grid items inside `.section-heading`
+   and `.workflow`, and grid items default to `min-width: auto`, which refuses to
+   shrink below min-content. German's long compounds ("Automatisierung") then force
+   the track wider than the viewport, and `overflow-x: hidden` clips the text
+   silently. `overflow-wrap: break-word` cannot help on its own — it does not
+   reduce min-content size. English never hits this; its longest words fit. */
+main, section, article, div, nav, ul, ol, li, p, h1, h2, h3 { min-width: 0; }
 p, h1, h2, h3, a, span { overflow-wrap: break-word; }
 img { display: block; max-width: 100%; }
 button { font: inherit; }
@@ -59,6 +65,15 @@ button { font: inherit; }
 .eyebrow { display: flex; align-items: center; gap: .8rem; margin: 0 0 1.35rem; color: var(--ink); font-family: var(--mono); font-size: .975rem; font-weight: 500; line-height: 1.45; letter-spacing: .1em; text-transform: uppercase; }
 .eyebrow span { width: 36px; height: 2px; background: var(--spectrum); }
 h1, h2, h3, p { margin-top: 0; }
+/* German compounds are long enough that narrow columns would otherwise break them
+   mid-word with no hyphen ("Automatisierun|g"). `hyphens: auto` uses the browser's
+   German dictionary so breaks land on syllable boundaries ("Automatisie-rung").
+   Scoped to :lang(de) — the English render is untouched by this.
+   Confined to the mobile breakpoint: above it the longest German words fit their
+   column, and unhyphenated type is the better default for large display headings. */
+@media (max-width: 720px) {
+	:lang(de) h1, :lang(de) h2, :lang(de) h3 { hyphens: auto; }
+}
 h1 { width: 100%; margin-bottom: 1.75rem; font-size: clamp(3.8rem, 6vw, 6rem); line-height: 1; letter-spacing: -.045em; font-weight: 600; text-wrap: balance; }
 h1 em, h2 em { font-style: normal; color: var(--cyan); }
 .hero-copy, .hero-copy h1 { width: 100%; }

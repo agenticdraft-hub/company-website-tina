@@ -1,0 +1,10 @@
+---
+// German route. Explicit files rather than a dynamic `[lang]` route: Astro's
+// `Astro.currentLocale` is reported to fall back to the default locale during
+// SSG on index pages built via getStaticPaths (withastro/astro#14228), which is
+// exactly the shape `src/pages/[lang]/index.astro` would have. Adding a locale
+// is one more file like this plus a folder under src/content.
+import LocalePage from '../../components/LocalePage.astro';
+---
+
+<LocalePage locale="de" />

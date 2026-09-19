@@ -1,12 +1,14 @@
 ---
 import { tinaField } from '@tinacms/astro/tina-field';
+import LanguageSwitcher from './LanguageSwitcher.astro';
 import type { CmsConfig } from '../lib/data';
 
 interface Props {
 	config?: CmsConfig | null;
+	locale?: string;
 }
 
-const { config } = Astro.props;
+const { config, locale = 'en' } = Astro.props;
 const siteName = config?.seo?.title ?? 'AgenticDraft';
 const logo = config?.seo?.logo ?? '/agenticdraft-mark.png';
 const navItems = (config?.nav ?? []).filter((item) => item !== null);
@@ -36,6 +38,7 @@ const navItems = (config?.nav ?? []).filter((item) => item !== null);
 				</a>
 			))
 		}
+		<LanguageSwitcher {locale} />
 		{
 			config?.headerCta?.label && (
 				<a

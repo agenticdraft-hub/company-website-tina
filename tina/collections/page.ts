@@ -16,9 +16,14 @@ export const PageCollection: Collection = {
 	// Locale folders: `en/home`, `de/home`, …
 	match: { include: '*/home' },
 	ui: {
-		// Single page: the admin's "view page" link should go to the site root,
-		// not to `/home` (which is what the filename would otherwise produce).
-		router: () => '/',
+		// Point the admin's "view page" link at the right URL for this locale.
+		// `relativePath` is `en/home.json` / `de/home.json`, so the first segment
+		// is the locale — derived from the path rather than stored as a field,
+		// which would duplicate the folder and could drift out of sync with it.
+		router: ({ document }) => {
+			const locale = document._sys.relativePath.split('/')[0];
+			return locale === 'en' ? '/' : `/${locale}/`;
+		},
 	},
 	fields: [
 		{

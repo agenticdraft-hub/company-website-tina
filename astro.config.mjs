@@ -53,7 +53,23 @@ export default defineConfig({
 	site: getSiteUrl(),
 	output: 'static',
 	adapter: await getAdapter(),
-	integrations: [sitemap(), tina()],
+	// Kept in sync by hand with src/lib/i18n.ts — this file is plain JS and
+	// importing the TS module would make the config's own loading fragile.
+	// `prefixDefaultLocale: false` serves English from `/` so existing URLs are
+	// untouched and German lives at `/de/`. Route files are explicit
+	// (src/pages/index.astro, src/pages/de/index.astro) rather than a dynamic
+	// `[lang]` route — see the note in src/pages/de/index.astro.
+	i18n: {
+		locales: ['en', 'de'],
+		defaultLocale: 'en',
+		routing: { prefixDefaultLocale: false },
+	},
+	integrations: [
+		// `i18n` here emits the hreflang alternates in the sitemap. The keys must
+		// match the locale codes in src/lib/i18n.ts.
+		sitemap({ i18n: { defaultLocale: 'en', locales: { en: 'en', de: 'de' } } }),
+		tina(),
+	],
 	build: {
 		// Inline the (~10 KiB) bundled CSS into a <style> in <head> instead of a
 		// separate render-blocking <link>. Astro's default ('auto') only inlines

@@ -1,0 +1,79 @@
+---
+import { DEFAULT_LOCALE, LOCALES, LOCALE_META, localePath } from '../lib/i18n';
+
+interface Props {
+	/** The locale currently being rendered. */
+	locale?: string;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+
+// The active locale renders as text rather than a link: a page linking to
+// itself is a no-op stop for keyboard users and a self-reference for crawlers.
+const others = LOCALES.filter((code) => code !== locale);
+const current = LOCALE_META[locale as keyof typeof LOCALE_META] ?? LOCALE_META[DEFAULT_LOCALE];
+---
+
+<nav class="lang-switch" aria-label="Language">
+	<span class="lang-switch-current" aria-current="true" lang={current.code}>
+		{current.short}<span class="sr-only"> ({current.name})</span>
+	</span>
+	{
+		others.map((code) => (
+			<span class="lang-switch-item">
+				<span class="lang-switch-sep" aria-hidden="true">
+					·
+				</span>
+				<a href={localePath(code)} lang={LOCALE_META[code].code} hreflang={LOCALE_META[code].code}>
+					{LOCALE_META[code].short}
+					<span class="sr-only"> ({LOCALE_META[code].name})</span>
+				</a>
+			</span>
+		))
+	}
+</nav>
+
+<style>
+	/* Scoped, not global: this is the one part of the page that wasn't in the
+	   original site, so it stays out of the ported stylesheet. Colours and the
+	   mono face come from the existing tokens. */
+	.lang-switch {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+		font-family: var(--mono);
+		font-size: 0.8125rem;
+		font-weight: 500;
+		letter-spacing: 0.1em;
+		text-transform: uppercase;
+		white-space: nowrap;
+	}
+
+	.lang-switch-item {
+		display: inline-flex;
+		align-items: center;
+		gap: 0.4rem;
+	}
+
+	.lang-switch a,
+	.lang-switch-current {
+		padding-block: 0.25rem;
+		transition: color 0.2s;
+	}
+
+	.lang-switch-current {
+		color: var(--ink);
+	}
+
+	.lang-switch a {
+		color: var(--muted);
+	}
+
+	.lang-switch a:hover {
+		color: var(--ink);
+	}
+
+	.lang-switch-sep {
+		color: rgba(155, 167, 189, 0.45);
+	}
+</style>

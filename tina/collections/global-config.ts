@@ -1,9 +1,13 @@
 import type { Collection } from 'tinacms';
 
 /**
- * Site-wide settings: things that are the same on every page. Trimmed to what
- * this one-pager actually renders — the starter's contact links and footer
- * starfield toggle are gone.
+ * Site-wide settings. One document per locale (`en/config.json`,
+ * `de/config.json`) — the nav labels, header button and footer tagline are
+ * prose and must change per language, unlike the brand name and logo.
+ *
+ * `ui.global` puts these in the admin's global sidebar rather than the form
+ * panel; it is about placement, not cardinality, so it still applies with one
+ * document per locale.
  */
 export const GlobalConfigCollection: Collection = {
 	name: 'config',

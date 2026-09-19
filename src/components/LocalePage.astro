@@ -1,0 +1,35 @@
+---
+import Base from '../layouts/Base.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import PageBody from './islands/PageBody.astro';
+import { DEFAULT_LOCALE } from '../lib/i18n';
+import { getConfig, getHome } from '../lib/data';
+import { islands } from '../lib/islands';
+
+/**
+ * The one page, rendered for a given locale. Both route files
+ * (`/index.astro` and `/de/index.astro`) just pick a locale and render this,
+ * so the two versions can't drift apart structurally.
+ */
+interface Props {
+	locale?: string;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+
+const page = await getHome(locale);
+const data = page.data?.page;
+if (!data) return new Response('Not Found', { status: 404 });
+
+const config = (await getConfig(locale)).data?.config ?? null;
+---
+
+<Base
+	title={data.seoTitle || config?.seo?.title || 'AgenticDraft'}
+	description={data.seoDescription ?? config?.seo?.description ?? ''}
+	{locale}
+>
+	<TinaIsland name="page" wrapper={islands.page.wrapper} params={{ locale }} primary>
+		<PageBody data={data} />
+	</TinaIsland>
+</Base>

@@ -18,9 +18,15 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import { getConfig, getHome } from './data';
 
+/**
+ * The page-side `<TinaIsland params={{ locale }}>` puts the locale on the
+ * island URL, so every fetch here can re-render the right language.
+ */
+const localeOf = (params: URLSearchParams) => params.get('locale') ?? 'en';
+
 export const islands: IslandRegistry = {
 	page: {
-		fetch: () => getHome(),
+		fetch: (_request, params) => getHome(localeOf(params)),
 		component: PageBody,
 		wrapper: { tag: 'div' },
 		propsFromData: (data) => ({
@@ -28,7 +34,7 @@ export const islands: IslandRegistry = {
 		}),
 	},
 	global: {
-		fetch: () => getConfig(),
+		fetch: (_request, params) => getConfig(localeOf(params)),
 		component: Header,
 		wrapper: { tag: 'div' },
 		propsFromData: (data) => ({
@@ -36,7 +42,7 @@ export const islands: IslandRegistry = {
 		}),
 	},
 	'global-footer': {
-		fetch: () => getConfig(),
+		fetch: (_request, params) => getConfig(localeOf(params)),
 		component: Footer,
 		wrapper: { tag: 'div' },
 		propsFromData: (data) => ({
