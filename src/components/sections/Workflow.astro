@@ -1,0 +1,73 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { CmsWorkflow } from '../../lib/data';
+
+interface Props {
+	workflow?: CmsWorkflow | null;
+}
+
+const { workflow } = Astro.props;
+const steps = (workflow?.steps ?? []).filter((s) => s !== null);
+
+// Numbers are derived from index (the source markup hardcodes "01"…"04").
+const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
+---
+
+{
+	workflow && (
+		<section class="workflow section" id="workflow" aria-labelledby="workflow-title">
+			<div class="workflow-intro reveal">
+				<p class="eyebrow" data-tina-field={tinaField(workflow, 'eyebrow')}>
+					<span /> {workflow.eyebrow}
+				</p>
+				<h2 id="workflow-title">
+					<span data-tina-field={tinaField(workflow, 'heading')}>{workflow.heading}</span>
+					{workflow.headingLine2 && (
+						<>
+							<br />
+							<span data-tina-field={tinaField(workflow, 'headingLine2')}>
+								{workflow.headingLine2}
+							</span>
+						</>
+					)}
+				</h2>
+				<p data-tina-field={tinaField(workflow, 'intro')}>{workflow.intro}</p>
+			</div>
+			<ol class="workflow-list">
+				{steps.map((step, index) => (
+					<li class="workflow-item reveal">
+						<span class="step">{stepNumber(index)}</span>
+						<div>
+							<h3 data-tina-field={tinaField(step, 'title')}>{step.title}</h3>
+							<p data-tina-field={tinaField(step, 'body')}>{step.body}</p>
+						</div>
+						<span class="command" data-tina-field={tinaField(step, 'command')}>
+							{step.command}
+						</span>
+					</li>
+				))}
+			</ol>
+		</section>
+	)
+}
+
+<script>
+	// Reveals the gradient spine behind the list once it scrolls into view.
+	// `.in-view` is what global.css keys the scaleY transition off.
+	const workflowList = document.querySelector('.workflow-list');
+	if (workflowList && 'IntersectionObserver' in window) {
+		const workflowObserver = new IntersectionObserver(
+			([entry]) => {
+				if (entry.isIntersecting) {
+					workflowList.classList.add('in-view');
+					workflowObserver.disconnect();
+				}
+			},
+			{ threshold: 0.2 },
+		);
+
+		workflowObserver.observe(workflowList);
+	} else {
+		workflowList?.classList.add('in-view');
+	}
+</script>

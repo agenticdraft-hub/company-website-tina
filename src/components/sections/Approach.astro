@@ -1,0 +1,49 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { CmsApproach } from '../../lib/data';
+
+interface Props {
+	approach?: CmsApproach | null;
+}
+
+const { approach } = Astro.props;
+const principles = (approach?.principles ?? []).filter((p) => p !== null);
+
+// The source markup hardcodes "01"/"02"/"03". Derived from index instead, so
+// adding or reordering a principle can never leave a stale number behind.
+const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
+---
+
+{
+	approach && (
+		<section class="approach section" id="approach" aria-labelledby="approach-title">
+			<div class="section-heading reveal">
+				<p class="eyebrow" data-tina-field={tinaField(approach, 'eyebrow')}>
+					<span /> {approach.eyebrow}
+				</p>
+				<h2 id="approach-title">
+					<span data-tina-field={tinaField(approach, 'heading')}>{approach.heading}</span>
+					{approach.headingLine2 && (
+						<>
+							<br />
+							<span data-tina-field={tinaField(approach, 'headingLine2')}>
+								{approach.headingLine2}
+							</span>
+						</>
+					)}
+				</h2>
+				<p data-tina-field={tinaField(approach, 'intro')}>{approach.intro}</p>
+			</div>
+			<div class="principles">
+				{principles.map((principle, index) => (
+					<article class="principle reveal">
+						<span class="principle-number">{stepNumber(index)}</span>
+						<div class="principle-line" aria-hidden="true" />
+						<h3 data-tina-field={tinaField(principle, 'title')}>{principle.title}</h3>
+						<p data-tina-field={tinaField(principle, 'body')}>{principle.body}</p>
+					</article>
+				))}
+			</div>
+		</section>
+	)
+}

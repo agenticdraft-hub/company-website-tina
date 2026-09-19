@@ -1,5 +1,8 @@
 ---
-import Blocks from '../blocks/Blocks.js';
+import Hero from '../sections/Hero.astro';
+import Approach from '../sections/Approach.astro';
+import Workflow from '../sections/Workflow.astro';
+import Closing from '../sections/Closing.astro';
 import type { CmsPage } from '../../lib/data';
 
 interface Props {
@@ -8,4 +11,10 @@ interface Props {
 
 const { data } = Astro.props;
 ---
-{data && <Blocks data={data} />}
+
+<main id="main">
+	<Hero hero={data?.hero} />
+	<Approach approach={data?.approach} />
+	<Workflow workflow={data?.workflow} />
+	<Closing closing={data?.closing} />
+</main>

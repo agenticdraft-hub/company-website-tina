@@ -1,44 +1,25 @@
 {
   "seo": {
-    "title": "TinaCMS + Astro",
-    "description": "Welcome to my website!",
-    "siteOwner": "TinaCMS",
-    "logo": "/orange-llama.svg"
+    "title": "AgenticDraft",
+    "description": "AgenticDraft builds governed agentic automation for Adobe Experience Manager and Edge Delivery Services.",
+    "siteOwner": "AgenticDraft",
+    "logo": "/agenticdraft-mark.png"
   },
   "nav": [
     {
-      "title": "Home",
-      "link": "/"
+      "title": "Approach",
+      "link": "#approach"
     },
     {
-      "title": "Blog",
-      "link": "/blog"
-    },
-    {
-      "title": "About",
-      "link": "/about"
+      "title": "Workflow",
+      "link": "#workflow"
     }
   ],
-  "contactLinks": [
-    {
-      "title": "X",
-      "link": "https://x.com/tinacms",
-      "icon": "tabler:brand-x"
-    },
-    {
-      "title": "Docs",
-      "link": "https://tina.io/docs",
-      "icon": "tabler:book-2"
-    },
-    {
-      "title": "GitHub",
-      "link": "https://github.com/tinacms/tinacms",
-      "icon": "tabler:brand-github"
-    },
-    {
-      "title": "Discord",
-      "link": "https://tina.io/discord",
-      "icon": "tabler:brand-discord"
-    }
-  ]
+  "headerCta": {
+    "label": "Start a conversation",
+    "href": "mailto:hello@agenticdraft.com"
+  },
+  "footer": {
+    "tagline": "AEM automation from requirement to release."
+  }
 }

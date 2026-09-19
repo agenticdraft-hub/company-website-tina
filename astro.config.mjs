@@ -1,11 +1,8 @@
 // @ts-check
 import { defineConfig } from 'astro/config';
-import mdx from '@astrojs/mdx';
 import sitemap from '@astrojs/sitemap';
-import icon from 'astro-icon';
 import tina from '@tinacms/astro/integration';
 import { tinaAdminDevRedirect } from '@tinacms/astro/vite';
-import tailwindcss from '@tailwindcss/vite';
 
 // Host-neutral: every content page prerenders to static HTML, and the one
 // on-demand route (/tina-island, the visual-editing endpoint) is served by
@@ -56,8 +53,7 @@ export default defineConfig({
 	site: getSiteUrl(),
 	output: 'static',
 	adapter: await getAdapter(),
-	redirects: { '/home': '/' },
-	integrations: [mdx(), sitemap(), icon(), tina()],
+	integrations: [sitemap(), tina()],
 	build: {
 		// Inline the (~10 KiB) bundled CSS into a <style> in <head> instead of a
 		// separate render-blocking <link>. Astro's default ('auto') only inlines
@@ -73,7 +69,7 @@ export default defineConfig({
 		remotePatterns: [{ protocol: 'https', hostname: 'assets.tina.io' }],
 	},
 	vite: {
-		plugins: [tailwindcss(), tinaAdminDevRedirect()],
+		plugins: [tinaAdminDevRedirect()],
 		// Bundle @tinacms/astro into the SSR build instead of resolving it
 		// per-module on every cold request — otherwise each
 		// `import TinaMarkdown from '@tinacms/astro/TinaMarkdown.astro'`

@@ -1,0 +1,39 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { CmsClosing } from '../../lib/data';
+
+interface Props {
+	closing?: CmsClosing | null;
+}
+
+const { closing } = Astro.props;
+---
+
+{
+	closing && (
+		<section class="closing" aria-labelledby="closing-title">
+			<div class="closing-orb" aria-hidden="true" />
+			<p class="eyebrow reveal" data-tina-field={tinaField(closing, 'eyebrow')}>
+				<span /> {closing.eyebrow}
+			</p>
+			<h2 id="closing-title" class="reveal">
+				<span data-tina-field={tinaField(closing, 'heading')}>{closing.heading}</span>
+				{closing.headingAccent && (
+					<>
+						<br />
+						<em data-tina-field={tinaField(closing, 'headingAccent')}>{closing.headingAccent}</em>
+					</>
+				)}
+			</h2>
+			{closing.cta?.label && (
+				<a
+					class="button button-primary reveal"
+					href={closing.cta.href ?? '#'}
+					data-tina-field={tinaField(closing.cta, 'label')}
+				>
+					{closing.cta.label}{' '}<span aria-hidden="true">↗</span>
+				</a>
+			)}
+		</section>
+	)
+}

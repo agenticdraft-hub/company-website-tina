@@ -1,0 +1,79 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { CmsHero } from '../../lib/data';
+
+interface Props {
+	hero?: CmsHero | null;
+}
+
+const { hero } = Astro.props;
+const proofItems = (hero?.proofItems ?? []).filter((item): item is string => Boolean(item));
+---
+
+{
+	hero && (
+		<section class="hero" id="top" aria-labelledby="hero-title">
+			<div class="hero-glow" aria-hidden="true" />
+			<div class="hero-copy reveal">
+				<p class="eyebrow" data-tina-field={tinaField(hero, 'eyebrow')}>
+					<span /> {hero.eyebrow}
+				</p>
+				<h1 id="hero-title">
+					<span data-tina-field={tinaField(hero, 'headline')}>{hero.headline}</span>
+					{hero.headlineAccent && (
+						<>
+							<br />
+							<em data-tina-field={tinaField(hero, 'headlineAccent')}>{hero.headlineAccent}</em>
+						</>
+					)}
+				</h1>
+				<p class="hero-lede" data-tina-field={tinaField(hero, 'lede')}>
+					{hero.lede}
+				</p>
+				<div class="hero-actions">
+					{hero.primaryCta?.label && (
+						<a
+							class="button button-primary"
+							href={hero.primaryCta.href ?? '#'}
+							data-tina-field={tinaField(hero.primaryCta, 'label')}
+						>
+							{hero.primaryCta.label}{' '}<span aria-hidden="true">↓</span>
+						</a>
+					)}
+					{hero.secondaryCta?.label && (
+						<a
+							class="text-link"
+							href={hero.secondaryCta.href ?? '#'}
+							data-tina-field={tinaField(hero.secondaryCta, 'label')}
+						>
+							{hero.secondaryCta.label}{' '}<span aria-hidden="true">↗</span>
+						</a>
+					)}
+				</div>
+			</div>
+			<div
+				class="video-placeholder"
+				role="img"
+				aria-label="Placeholder for the future AgenticDraft overview video"
+			>
+				<span class="video-label" data-tina-field={tinaField(hero.video, 'label')}>
+					{hero.video?.label}
+				</span>
+				<span class="video-status" data-tina-field={tinaField(hero.video, 'status')}>
+					{hero.video?.status}
+				</span>
+				<span class="video-meta" aria-hidden="true">
+					{hero.video?.meta}
+				</span>
+			</div>
+			<div class="hero-proof" aria-label="Platform capabilities">
+				<p data-tina-field={tinaField(hero, 'proofTitle')}>{hero.proofTitle}</p>
+				<ul>
+					{proofItems.map((item, index) => (
+						<li data-tina-field={tinaField(hero, 'proofItems', index)}>{item}</li>
+					))}
+				</ul>
+			</div>
+		</section>
+	)
+}

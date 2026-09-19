@@ -1,17 +1,19 @@
 ---
-import Base from '../layouts/Base.js';
-import Starfield from '../components/space/Starfield.js';
-import Button from '../components/ui/Button.js';
+import Base from '../layouts/Base.astro';
 ---
-<Base title="Lost in space (404)" description="This page drifted out of orbit.">
-	<section class="relative flex min-h-[70vh] items-center justify-center overflow-hidden px-6 text-center">
-		<Starfield count={90} class="text-foreground/20" />
-		<div class="relative flex flex-col items-center">
-			<img src="/llamanaut.png" alt="" aria-hidden="true" width="160" height="160" class="mb-6 size-40 object-contain" />
-			<p class="text-sm font-medium tracking-widest text-primary uppercase">Error 404</p>
-			<h1 class="mt-2 text-4xl font-semibold tracking-tight lg:text-5xl">Lost in space</h1>
-			<p class="mx-auto mt-4 max-w-md text-muted-foreground">This page drifted out of orbit. Let's get you back to mission control.</p>
-			<Button href="/" class="mt-8">Back to home</Button>
-		</div>
-	</section>
+
+<Base
+	title="Page not found — AgenticDraft"
+	description="That page isn't here. Head back to the AgenticDraft home page."
+>
+	<main id="main">
+		<section class="closing" aria-labelledby="notfound-title">
+			<div class="closing-orb" aria-hidden="true"></div>
+			<p class="eyebrow"><span></span> Error 404</p>
+			<h2 id="notfound-title">This page drifted<br /><em>out of orbit.</em></h2>
+			<a class="button button-primary" href="/">
+				Back to home <span aria-hidden="true">→</span>
+			</a>
+		</section>
+	</main>
 </Base>

@@ -1,0 +1,87 @@
+{
+  "seoTitle": "AgenticDraft — AEM automation, from ticket to production",
+  "seoDescription": "AgenticDraft builds governed agentic automation for Adobe Experience Manager and Edge Delivery Services.",
+  "hero": {
+    "eyebrow": "AEM + EDS delivery automation",
+    "headline": "From ticket to production.",
+    "headlineAccent": "One governed flow.",
+    "lede": "AgenticDraft connects requirements, design, implementation, testing, verification, and pull-request preparation in one governed workflow for Adobe Experience Manager teams.",
+    "primaryCta": {
+      "label": "Explore the workflow",
+      "href": "#workflow"
+    },
+    "secondaryCta": {
+      "label": "Discuss your AEM workflow",
+      "href": "mailto:hello@agenticdraft.com"
+    },
+    "video": {
+      "label": "AgenticDraft product overview",
+      "status": "Overview video coming soon",
+      "meta": "16:9 · overview film"
+    },
+    "proofTitle": "Designed around AEM delivery",
+    "proofItems": [
+      "Adobe Experience Manager",
+      "Edge Delivery Services",
+      "Multi-agent workflows",
+      "Design-to-code"
+    ]
+  },
+  "approach": {
+    "eyebrow": "Why AgenticDraft",
+    "heading": "Automation that carries context",
+    "headingLine2": "through delivery.",
+    "intro": "AEM delivery crosses tickets, repositories, designs, content, browsers, and release controls. AgenticDraft connects that working context from one stage to the next.",
+    "principles": [
+      {
+        "title": "Config-driven",
+        "body": "Your build commands, conventions, and branch rules live in one shared configuration—not scattered prompts."
+      },
+      {
+        "title": "Context-connected",
+        "body": "Bring together work items, codebases, Figma designs, live AEM content, and browser evidence."
+      },
+      {
+        "title": "Governed by design",
+        "body": "Readiness checks, validation gates, accessibility review, and secret scanning stay inside the workflow."
+      }
+    ]
+  },
+  "workflow": {
+    "eyebrow": "The workflow",
+    "heading": "From requirements to a",
+    "headingLine2": "review-ready pull request.",
+    "intro": "Move through a structured delivery lifecycle. Each stage produces durable output that informs the next.",
+    "steps": [
+      {
+        "title": "Requirements",
+        "body": "Fetch the ticket, validate readiness, distill requirements, and research the codebase.",
+        "command": "/draft-req"
+      },
+      {
+        "title": "Design to code",
+        "body": "Extract design context, generate a convention-aware prototype, and verify visual fidelity.",
+        "command": "/draft-design"
+      },
+      {
+        "title": "Plan + build",
+        "body": "Create an implementation plan, resolve risks, and execute with review and test loops.",
+        "command": "/draft-build"
+      },
+      {
+        "title": "Verify + ship",
+        "body": "Compile, lint, test, scan, review architecture, and prepare a traceable pull request.",
+        "command": "/draft-ship"
+      }
+    ]
+  },
+  "closing": {
+    "eyebrow": "Shape the workflow around your team",
+    "heading": "A governed AEM workflow,",
+    "headingAccent": "built for your team.",
+    "cta": {
+      "label": "Start a conversation",
+      "href": "mailto:hello@agenticdraft.com"
+    }
+  }
+}
