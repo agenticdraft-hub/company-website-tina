@@ -1,5 +1,5 @@
 ---
-import { DEFAULT_LOCALE, LOCALES, LOCALE_META, localePath } from '../lib/i18n';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_META, localePath, uiStrings } from '../lib/i18n';
 
 interface Props {
 	/** The locale currently being rendered. */
@@ -7,6 +7,7 @@ interface Props {
 }
 
 const { locale = DEFAULT_LOCALE } = Astro.props;
+const ui = uiStrings(locale);
 
 // The active locale renders as text rather than a link: a page linking to
 // itself is a no-op stop for keyboard users and a self-reference for crawlers.
@@ -14,7 +15,7 @@ const others = LOCALES.filter((code) => code !== locale);
 const current = LOCALE_META[locale as keyof typeof LOCALE_META] ?? LOCALE_META[DEFAULT_LOCALE];
 ---
 
-<nav class="lang-switch" aria-label="Language">
+<nav class="lang-switch" aria-label={ui.languageNavAria}>
 	<span class="lang-switch-current" aria-current="true" lang={current.code}>
 		{current.short}<span class="sr-only"> ({current.name})</span>
 	</span>
@@ -32,6 +33,25 @@ const current = LOCALE_META[locale as keyof typeof LOCALE_META] ?? LOCALE_META[D
 		))
 	}
 </nav>
+
+<script>
+	// The switcher links are static (`/`, `/de/`) — a hash anchor only exists at
+	// runtime, so the current one is carried over on click. Switching from
+	// `/de/#workflow` then lands on `/#workflow`, not the top of the page.
+	//
+	// The target is captured once in `base` and never read back from the live
+	// `href`: the handler rewrites `href`, and a browser restoring this page from
+	// the back/forward cache restores that rewrite along with the heap that holds
+	// this closure. Reading `href` back would append the hash a second time
+	// (`/#workflow#workflow`), which matches no element and silently lands at the
+	// top — the exact behaviour this script exists to prevent.
+	document.querySelectorAll<HTMLAnchorElement>('.lang-switch a').forEach((link) => {
+		const base = link.getAttribute('href') ?? '';
+		link.addEventListener('click', () => {
+			link.href = base + window.location.hash;
+		});
+	});
+</script>
 
 <style>
 	/* Scoped, not global: this is the one part of the page that wasn't in the

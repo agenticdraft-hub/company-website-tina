@@ -7,13 +7,14 @@ import type { CmsPage } from '../../lib/data';
 
 interface Props {
 	data?: CmsPage | null;
+	locale?: string;
 }
 
-const { data } = Astro.props;
+const { data, locale } = Astro.props;
 ---
 
 <main id="main">
-	<Hero hero={data?.hero} />
+	<Hero hero={data?.hero} {locale} />
 	<Approach approach={data?.approach} />
 	<Workflow workflow={data?.workflow} />
 	<Closing closing={data?.closing} />

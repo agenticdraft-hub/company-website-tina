@@ -1,12 +1,15 @@
 ---
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { CmsHero } from '../../lib/data';
+import { uiStrings } from '../../lib/i18n';
 
 interface Props {
 	hero?: CmsHero | null;
+	locale?: string;
 }
 
-const { hero } = Astro.props;
+const { hero, locale } = Astro.props;
+const ui = uiStrings(locale);
 const proofItems = (hero?.proofItems ?? []).filter((item): item is string => Boolean(item));
 ---
 
@@ -54,7 +57,7 @@ const proofItems = (hero?.proofItems ?? []).filter((item): item is string => Boo
 			<div
 				class="video-placeholder"
 				role="img"
-				aria-label="Placeholder for the future AgenticDraft overview video"
+				aria-label={ui.videoPlaceholderAria}
 			>
 				<span class="video-label" data-tina-field={tinaField(hero.video, 'label')}>
 					{hero.video?.label}
@@ -66,7 +69,7 @@ const proofItems = (hero?.proofItems ?? []).filter((item): item is string => Boo
 					{hero.video?.meta}
 				</span>
 			</div>
-			<div class="hero-proof" aria-label="Platform capabilities">
+			<div class="hero-proof" aria-label={ui.platformCapabilitiesAria}>
 				<p data-tina-field={tinaField(hero, 'proofTitle')}>{hero.proofTitle}</p>
 				<ul>
 					{proofItems.map((item, index) => (

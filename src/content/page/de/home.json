@@ -42,14 +42,14 @@
         "body": "Führt Work Items, Codebasen, Figma-Designs, Live-AEM-Inhalte und Browser-Nachweise zusammen."
       },
       {
-        "title": "Gesteuert von Grund auf",
+        "title": "Bewusst gesteuert",
         "body": "Readiness-Checks, Validierungs-Gates, Accessibility-Reviews und Secret-Scans bleiben Teil des Workflows."
       }
     ]
   },
   "workflow": {
     "eyebrow": "Der Workflow",
-    "heading": "Von den Vorgaben zum",
+    "heading": "Von den Anforderungen zum",
     "headingLine2": "fertigen Pull Request.",
     "intro": "Durchlaufen Sie einen strukturierten Delivery-Lebenszyklus. Jede Stufe erzeugt dauerhafte Ergebnisse, auf denen die nächste aufbaut.",
     "steps": [

@@ -77,10 +77,13 @@ const alternateURL = (code: string) => new URL(localePath(code), Astro.site);
 <meta property="og:title" content={title} />
 <meta property="og:description" content={description} />
 <meta property="og:image" content={new URL(image, Astro.url)} />
-<meta property="og:locale" content={LOCALE_META[locale as keyof typeof LOCALE_META]?.code ?? locale} />
+<meta
+	property="og:locale"
+	content={LOCALE_META[locale as keyof typeof LOCALE_META]?.ogCode ?? locale}
+/>
 {
 	LOCALES.filter((code) => code !== locale).map((code) => (
-		<meta property="og:locale:alternate" content={LOCALE_META[code].code} />
+		<meta property="og:locale:alternate" content={LOCALE_META[code].ogCode} />
 	))
 }
 

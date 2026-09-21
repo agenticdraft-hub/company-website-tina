@@ -21,11 +21,12 @@ copy, links and images, but can't delete or reorder sections, so the design can'
 
 | Collection | File | What it holds |
 |---|---|---|
-| Home page | `src/content/page/home.json` | Hero, Approach, Workflow, Closing |
-| Site settings | `src/content/config/config.json` | Site name, logo, nav, header button, footer tagline |
+| Home page | `src/content/page/<locale>/home.json` | Hero, Approach, Workflow, Closing |
+| Site settings | `src/content/config/<locale>/config.json` | Site name, logo, nav, header button, footer tagline |
 
-Both are declared in `tina/collections/`. The schema is the source of truth: change a field
-there and the admin updates on the next `pnpm dev`.
+The `<locale>` folder is `en` or `de` (see [Locales](#locales-i18n)); each locale holds a full
+copy of both documents. Both collections are declared in `tina/collections/`. The schema is the
+source of truth: change a field there and the admin updates on the next `pnpm dev`.
 
 Section numbers (`01`, `02` …) are generated from the list index, so adding a principle or a
 workflow step can't leave a stale number behind. Headings that the design breaks across two
@@ -35,11 +36,15 @@ lines have a separate "second line" field so editors never have to type HTML.
 
 ```
 tina/collections/*        schema
-src/content/**/*.json     content
+src/content/**/*.json     content (one folder per locale)
+src/lib/i18n.ts           locale registry + UI chrome strings (skip link, menu/aria labels)
 src/lib/data.ts           loaders (getHome, getConfig) over the generated Tina client
 src/lib/islands.ts        registry of live-editable regions
+src/pages/index.astro     English route (/)
+src/pages/de/index.astro  German route (/de/)
+src/components/LocalePage.astro     the page, rendered for a given locale
 src/components/sections/  Hero, Approach, Workflow, Closing
-src/components/           BaseHead, Header, Footer
+src/components/           BaseHead, Header, Footer, LanguageSwitcher
 src/layouts/Base.astro    document shell
 src/styles/global.css     the site's CSS
 ```
@@ -52,6 +57,28 @@ Visual editing is wired through `@tinacms/astro`: each editable region is an "is
 `src/lib/islands.ts`, and `/tina-island/[name]` re-renders just that region when an editor
 changes a field. Note that an island's `wrapper` only accepts `{ tag, className }`, so the
 page wrapper is a `div` and `<main id="main">` is rendered inside it by `PageBody.astro`.
+
+## Locales (i18n)
+
+English is served from `/`, German from `/de/`. `src/lib/i18n.ts` is the single registry:
+the `LOCALES` list, per-locale metadata (BCP-47 code, switcher label, OpenGraph locale), and
+the UI chrome strings that aren't page content (skip link, menu labels, aria-labels).
+
+Every content page renders through `LocalePage.astro`, which picks the locale's content
+documents (`page/<locale>/home.json`, `config/<locale>/config.json`) and threads the locale
+into the Tina islands, so visual editing re-renders the right language. SEO wiring is
+reciprocal: `<html lang>`, canonical, `hreflang` alternates (+ `x-default`) and
+`og:locale`/`og:locale:alternate` per page, plus hreflang entries in the sitemap.
+
+**To add a language** (say `fr`):
+
+1. Add `'fr'` to `LOCALES` and `LOCALE_META` in `src/lib/i18n.ts`, plus its UI strings.
+2. Create `src/content/page/fr/home.json` and `src/content/config/fr/config.json`
+   (copy the `en` documents and translate).
+3. Add `src/pages/fr/index.astro` — a three-line file passing `locale="fr"` to `LocalePage`.
+4. Add `'fr'` to the `i18n.locales` in `astro.config.mjs` and to the sitemap's
+   `i18n.locales` map (kept in sync by hand — the config is plain JS and can't import
+   the TS registry).
 
 ## Building
 

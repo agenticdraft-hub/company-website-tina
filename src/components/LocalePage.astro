@@ -30,6 +30,6 @@ const config = (await getConfig(locale)).data?.config ?? null;
 	{locale}
 >
 	<TinaIsland name="page" wrapper={islands.page.wrapper} params={{ locale }} primary>
-		<PageBody data={data} />
+		<PageBody data={data} {locale} />
 	</TinaIsland>
 </Base>

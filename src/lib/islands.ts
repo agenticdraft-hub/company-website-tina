@@ -29,24 +29,27 @@ export const islands: IslandRegistry = {
 		fetch: (_request, params) => getHome(localeOf(params)),
 		component: PageBody,
 		wrapper: { tag: 'div' },
-		propsFromData: (data) => ({
+		propsFromData: (data, params) => ({
 			data: (data as QueryResult<PageQuery>).data?.page as CmsPage | undefined,
+			locale: localeOf(params),
 		}),
 	},
 	global: {
 		fetch: (_request, params) => getConfig(localeOf(params)),
 		component: Header,
 		wrapper: { tag: 'div' },
-		propsFromData: (data) => ({
+		propsFromData: (data, params) => ({
 			config: (data as QueryResult<ConfigQuery>).data?.config as CmsConfig | undefined,
+			locale: localeOf(params),
 		}),
 	},
 	'global-footer': {
 		fetch: (_request, params) => getConfig(localeOf(params)),
 		component: Footer,
 		wrapper: { tag: 'div' },
-		propsFromData: (data) => ({
+		propsFromData: (data, params) => ({
 			config: (data as QueryResult<ConfigQuery>).data?.config as CmsConfig | undefined,
+			locale: localeOf(params),
 		}),
 	},
 };

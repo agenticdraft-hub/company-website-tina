@@ -24,8 +24,55 @@ export const localePath = (locale: string): string =>
 /**
  * `code` is the BCP-47 tag for `hreflang` / `lang`; `name` is the accessible
  * label a screen reader announces, since "EN · DE" alone reads as letters.
+ * `ogCode` is the `language_TERRITORY` form OpenGraph expects for `og:locale`.
  */
-export const LOCALE_META: Record<Locale, { code: string; short: string; name: string }> = {
-	en: { code: 'en', short: 'EN', name: 'English' },
-	de: { code: 'de', short: 'DE', name: 'Deutsch' },
+export const LOCALE_META: Record<Locale, { code: string; short: string; name: string; ogCode: string }> = {
+	en: { code: 'en', short: 'EN', name: 'English', ogCode: 'en_US' },
+	de: { code: 'de', short: 'DE', name: 'Deutsch', ogCode: 'de_DE' },
+};
+
+/**
+ * UI chrome strings — skip link, menu labels, aria-labels. These are not page
+ * content (editors translate copy in the CMS documents), but they must follow
+ * the page's language or screen readers announce English on the German page.
+ */
+export const UI_STRINGS: Record<
+	Locale,
+	{
+		skipLink: string;
+		menuOpen: string;
+		menuClose: string;
+		primaryNavAria: string;
+		languageNavAria: string;
+		brandHomeAria: (siteName: string) => string;
+		videoPlaceholderAria: string;
+		platformCapabilitiesAria: string;
+	}
+> = {
+	en: {
+		skipLink: 'Skip to content',
+		menuOpen: 'Open navigation',
+		menuClose: 'Close navigation',
+		primaryNavAria: 'Primary navigation',
+		languageNavAria: 'Language',
+		brandHomeAria: (siteName) => `${siteName} home`,
+		videoPlaceholderAria: 'Placeholder for the future AgenticDraft overview video',
+		platformCapabilitiesAria: 'Platform capabilities',
+	},
+	de: {
+		skipLink: 'Zum Inhalt springen',
+		menuOpen: 'Navigation öffnen',
+		menuClose: 'Navigation schließen',
+		primaryNavAria: 'Hauptnavigation',
+		languageNavAria: 'Sprache',
+		brandHomeAria: (siteName) => `Zur Startseite von ${siteName}`,
+		videoPlaceholderAria: 'Platzhalter für das kommende AgenticDraft-Übersichtsvideo',
+		platformCapabilitiesAria: 'Plattform-Funktionen',
+	},
+};
+
+/** UI strings for a locale, falling back to the default for unknown values. */
+export const uiStrings = (locale?: string) => {
+	const key = locale ?? DEFAULT_LOCALE;
+	return UI_STRINGS[isLocale(key) ? key : DEFAULT_LOCALE];
 };

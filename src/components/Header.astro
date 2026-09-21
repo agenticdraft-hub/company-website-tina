@@ -2,6 +2,7 @@
 import { tinaField } from '@tinacms/astro/tina-field';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import type { CmsConfig } from '../lib/data';
+import { uiStrings } from '../lib/i18n';
 
 interface Props {
 	config?: CmsConfig | null;
@@ -9,13 +10,14 @@ interface Props {
 }
 
 const { config, locale = 'en' } = Astro.props;
+const ui = uiStrings(locale);
 const siteName = config?.seo?.title ?? 'AgenticDraft';
 const logo = config?.seo?.logo ?? '/agenticdraft-mark.png';
 const navItems = (config?.nav ?? []).filter((item) => item !== null);
 ---
 
 <header class="site-header" data-header>
-	<a class="brand" href="#top" aria-label={`${siteName} home`}>
+	<a class="brand" href="#top" aria-label={ui.brandHomeAria(siteName)}>
 		<img
 			src={logo}
 			alt=""
@@ -27,10 +29,17 @@ const navItems = (config?.nav ?? []).filter((item) => item !== null);
 			{siteName}
 		</span>
 	</a>
-	<button class="menu-button" type="button" aria-expanded="false" aria-controls="site-nav">
-		<span class="sr-only" data-menu-label>Open navigation</span><i></i><i></i>
+	<button
+		class="menu-button"
+		type="button"
+		aria-expanded="false"
+		aria-controls="site-nav"
+		data-label-open={ui.menuOpen}
+		data-label-close={ui.menuClose}
+	>
+		<span class="sr-only" data-menu-label>{ui.menuOpen}</span><i></i><i></i>
 	</button>
-	<nav id="site-nav" class="site-nav" aria-label="Primary navigation">
+	<nav id="site-nav" class="site-nav" aria-label={ui.primaryNavAria}>
 		{
 			navItems.map((item) => (
 				<a href={item.link ?? '#'} data-tina-field={tinaField(item, 'title')}>
@@ -68,7 +77,9 @@ const navItems = (config?.nav ?? []).filter((item) => item !== null);
 	const setMenuState = (open: boolean, returnFocus = false) => {
 		if (!menuButton || !menuLabel || !nav) return;
 		menuButton.setAttribute('aria-expanded', String(open));
-		menuLabel.textContent = open ? 'Close navigation' : 'Open navigation';
+		menuLabel.textContent = open
+			? (menuButton.dataset.labelClose ?? 'Close navigation')
+			: (menuButton.dataset.labelOpen ?? 'Open navigation');
 		nav.classList.toggle('open', open);
 		document.body.classList.toggle('menu-open', open);
 		if (returnFocus) menuButton.focus();

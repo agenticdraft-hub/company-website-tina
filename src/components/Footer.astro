@@ -4,6 +4,9 @@ import type { CmsConfig } from '../lib/data';
 
 interface Props {
 	config?: CmsConfig | null;
+	/** Kept for island symmetry with Header: footer copy is config-driven per
+	 * locale, but if the footer ever needs locale-aware chrome it's here. */
+	locale?: string;
 }
 
 const { config } = Astro.props;
