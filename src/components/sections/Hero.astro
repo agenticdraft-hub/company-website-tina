@@ -33,6 +33,11 @@ const proofItems = (hero?.proofItems ?? []).filter((item): item is string => Boo
 				<p class="hero-lede preserve-lines" data-tina-field={tinaField(hero, 'lede')}>
 					{hero.lede}
 				</p>
+				{hero.ledeNote && (
+					<p class="hero-note" data-tina-field={tinaField(hero, 'ledeNote')}>
+						{hero.ledeNote}
+					</p>
+				)}
 				<div class="hero-actions">
 					{hero.primaryCta?.label && (
 						<a

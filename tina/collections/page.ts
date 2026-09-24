@@ -64,6 +64,13 @@ export const PageCollection: Collection = {
 				},
 				{ name: 'lede', label: 'Intro paragraph', type: 'string', ui: { component: 'textarea' } },
 				{
+					name: 'ledeNote',
+					label: 'Intro note (small print)',
+					type: 'string',
+					description:
+						"Short line under the intro, e.g. 'First built on AEM and EDS workflows'. Leave blank to hide.",
+				},
+				{
 					name: 'primaryCta',
 					label: 'Primary button',
 					type: 'object',

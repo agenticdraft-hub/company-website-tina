@@ -78,6 +78,7 @@ h1 { width: 100%; margin-bottom: 1.75rem; font-size: clamp(3.8rem, 6vw, 6rem); l
 h1 em, h2 em { font-style: normal; color: var(--cyan); }
 .hero-copy, .hero-copy h1 { width: 100%; }
 .hero-lede { max-width: var(--measure-copy); color: var(--muted); font-size: clamp(1.365rem, 1.65vw, 1.625rem); line-height: 1.62; letter-spacing: -.012em; }
+.hero-note { margin: 0; color: var(--muted); font: .845rem/1.5 var(--mono); letter-spacing: .08em; text-transform: uppercase; }
 .hero-actions { display: flex; align-items: center; gap: 1.6rem; margin-top: 2.2rem; }
 .button { display: inline-flex; gap: 1rem; align-items: center; justify-content: center; min-height: 58px; padding: 1rem 1.45rem; border-radius: 8px; font-size: 1.17rem; font-weight: 700; letter-spacing: -.015em; transition: transform .2s var(--ease-out), box-shadow .2s var(--ease-out); }
 .button:hover { transform: translateY(-2px); }
