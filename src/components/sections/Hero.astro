@@ -30,7 +30,7 @@ const proofItems = (hero?.proofItems ?? []).filter((item): item is string => Boo
 						</>
 					)}
 				</h1>
-				<p class="hero-lede" data-tina-field={tinaField(hero, 'lede')}>
+				<p class="hero-lede preserve-lines" data-tina-field={tinaField(hero, 'lede')}>
 					{hero.lede}
 				</p>
 				<div class="hero-actions">

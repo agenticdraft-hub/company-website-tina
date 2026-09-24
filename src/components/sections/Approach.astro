@@ -32,7 +32,7 @@ const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
 						</>
 					)}
 				</h2>
-				<p data-tina-field={tinaField(approach, 'intro')}>{approach.intro}</p>
+				<p class="preserve-lines" data-tina-field={tinaField(approach, 'intro')}>{approach.intro}</p>
 			</div>
 			<div class="principles">
 				{principles.map((principle, index) => (
@@ -40,7 +40,7 @@ const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
 						<span class="principle-number">{stepNumber(index)}</span>
 						<div class="principle-line" aria-hidden="true" />
 						<h3 data-tina-field={tinaField(principle, 'title')}>{principle.title}</h3>
-						<p data-tina-field={tinaField(principle, 'body')}>{principle.body}</p>
+						<p class="preserve-lines" data-tina-field={tinaField(principle, 'body')}>{principle.body}</p>
 					</article>
 				))}
 			</div>

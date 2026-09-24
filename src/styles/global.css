@@ -193,3 +193,8 @@ h1 em, h2 em { font-style: normal; color: var(--cyan); }
   .approach { background: white; }
   .hero { padding-top: 2rem; }
 }
+
+/* Honour line breaks typed into Tina textarea fields. */
+.preserve-lines {
+	white-space: pre-line;
+}

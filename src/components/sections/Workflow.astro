@@ -31,7 +31,7 @@ const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
 						</>
 					)}
 				</h2>
-				<p data-tina-field={tinaField(workflow, 'intro')}>{workflow.intro}</p>
+				<p class="preserve-lines" data-tina-field={tinaField(workflow, 'intro')}>{workflow.intro}</p>
 			</div>
 			<ol class="workflow-list">
 				{steps.map((step, index) => (
@@ -39,7 +39,7 @@ const stepNumber = (index: number) => String(index + 1).padStart(2, '0');
 						<span class="step">{stepNumber(index)}</span>
 						<div>
 							<h3 data-tina-field={tinaField(step, 'title')}>{step.title}</h3>
-							<p data-tina-field={tinaField(step, 'body')}>{step.body}</p>
+							<p class="preserve-lines" data-tina-field={tinaField(step, 'body')}>{step.body}</p>
 						</div>
 						<span class="command" data-tina-field={tinaField(step, 'command')}>
 							{step.command}
