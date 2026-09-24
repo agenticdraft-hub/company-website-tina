@@ -6,6 +6,7 @@
     "headline": "From request to sign-off",
     "headlineAccent": "One deterministic process.",
     "lede": "Intake, design, execution, checking, verification, handover. Every business process already runs those six stages — an invoice, an onboarding case, a code change, a regulatory submission. \nWhat none of them run is the part where each stage has to prove it did what the stage before it asked for.\nAgenticDraft is that part. You get the output, and the trail behind it.",
+    "ledeNote": "AEM and EDS pipelines already working in production in the fortune 500 companies.",
     "primaryCta": {
       "label": "Explore the workflow",
       "href": "#workflow"
