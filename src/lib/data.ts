@@ -38,4 +38,4 @@ export type CmsClosing = NonNullable<CmsPage['closing']>;
 export type CmsPrinciple = NonNullable<NonNullable<CmsApproach['principles']>[number]>;
 export type CmsStep = NonNullable<NonNullable<CmsWorkflow['steps']>[number]>;
 export type CmsAction = NonNullable<CmsHero['primaryCta']>;
-export type CmsVideo = NonNullable<CmsHero['video']>;
+export type CmsFlow = NonNullable<CmsHero['flow']>;

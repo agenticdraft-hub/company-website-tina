@@ -2,6 +2,7 @@
 import { tinaField } from '@tinacms/astro/tina-field';
 import type { CmsHero } from '../../lib/data';
 import { uiStrings } from '../../lib/i18n';
+import FlowDiagram from '../FlowDiagram.astro';
 
 interface Props {
 	hero?: CmsHero | null;
@@ -59,21 +60,7 @@ const proofItems = (hero?.proofItems ?? []).filter((item): item is string => Boo
 					)}
 				</div>
 			</div>
-			<div
-				class="video-placeholder"
-				role="img"
-				aria-label={ui.videoPlaceholderAria}
-			>
-				<span class="video-label" data-tina-field={tinaField(hero.video, 'label')}>
-					{hero.video?.label}
-				</span>
-				<span class="video-status" data-tina-field={tinaField(hero.video, 'status')}>
-					{hero.video?.status}
-				</span>
-				<span class="video-meta" aria-hidden="true">
-					{hero.video?.meta}
-				</span>
-			</div>
+			<FlowDiagram flow={hero.flow} locale={locale} />
 			<div class="hero-proof" aria-label={ui.platformCapabilitiesAria}>
 				<p data-tina-field={tinaField(hero, 'proofTitle')}>{hero.proofTitle}</p>
 				<ul>

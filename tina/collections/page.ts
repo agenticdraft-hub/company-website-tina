@@ -93,10 +93,102 @@ export const PageCollection: Collection = {
 					label: 'Video placeholder',
 					type: 'object',
 					description: 'Stand-in shown until a real overview film exists.',
+					// Not rendered — the Governed flow diagram took its place. Hidden
+					// rather than deleted so the content survives for a future film.
+					ui: { component: 'hidden' },
 					fields: [
 						{ name: 'label', label: 'Label', type: 'string' },
 						{ name: 'status', label: 'Status text', type: 'string' },
 						{ name: 'meta', label: 'Meta note', type: 'string' },
+					],
+				},
+				{
+					name: 'flow',
+					label: 'Governed flow diagram',
+					type: 'object',
+					description:
+						'The stage diagram under the buttons. Stage numbers (01, 02 …) are generated automatically.',
+					fields: [
+						{ name: 'eyebrow', label: 'Eyebrow', type: 'string' },
+						{
+							name: 'meta',
+							label: 'Top-right note',
+							type: 'string',
+							description: 'e.g. "Any work item · any system · any industry".',
+						},
+						{ name: 'heading', label: 'Heading', type: 'string' },
+						{
+							name: 'headingLine2',
+							label: 'Heading — second line',
+							type: 'string',
+							description: 'Rendered on a new line. Leave blank for a single-line heading.',
+						},
+						{
+							name: 'pledges',
+							label: 'Pledges',
+							type: 'string',
+							list: true,
+							description: 'The short lines beside the heading, e.g. "Every decision recorded".',
+						},
+						{
+							name: 'inputs',
+							label: 'Work items',
+							type: 'string',
+							list: true,
+							description: 'The items fanning into the first stage, e.g. "Invoice".',
+						},
+						{
+							name: 'inputsRest',
+							label: 'Work items — catch-all',
+							type: 'string',
+							description:
+								'Shown last, dimmed, with a dashed line, e.g. "Whatever else you run". Leave blank to hide.',
+						},
+						{
+							name: 'stages',
+							label: 'Stages',
+							type: 'object',
+							list: true,
+							ui: {
+								itemProps: (item) => ({ label: item?.name }),
+							},
+							fields: [
+								{ name: 'name', label: 'Name', type: 'string' },
+								{
+									name: 'gloss',
+									label: 'Description',
+									type: 'string',
+									ui: { component: 'textarea' },
+								},
+								{
+									name: 'highlight',
+									label: 'Highlight this stage',
+									type: 'boolean',
+									description: 'Draws the marker solid white. Meant for one stage only.',
+								},
+							],
+						},
+						{
+							name: 'outcome',
+							label: 'Outcome',
+							type: 'object',
+							fields: [
+								{ name: 'label', label: 'Badge', type: 'string' },
+								{ name: 'note', label: 'Note under the badge', type: 'string' },
+							],
+						},
+						{
+							name: 'returnNote',
+							label: 'Return-path label',
+							type: 'string',
+							description: 'Under the dashed line back to the start. Leave blank to hide the line.',
+						},
+						{
+							name: 'claim',
+							label: 'Closing line',
+							type: 'string',
+							ui: { component: 'textarea' },
+						},
 					],
 				},
 				{ name: 'proofTitle', label: 'Capability strip — heading', type: 'string' },

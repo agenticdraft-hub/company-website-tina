@@ -19,6 +19,63 @@
       "status": "Übersichtsvideo folgt in Kürze",
       "meta": "16:9 · Übersichtsfilm"
     },
+    "flow": {
+      "eyebrow": "Ein gesteuerter Ablauf",
+      "meta": "Jeder Vorgang · jedes System · jede Branche",
+      "heading": "Jedes Unternehmen durchläuft diese sechs Stufen.",
+      "headingLine2": "Kaum eines durchläuft die fünfte.",
+      "pledges": [
+        "Jede Entscheidung dokumentiert",
+        "Jede Prüfung auf die Anfrage zurückgeführt",
+        "Jede Übergabe mit ihrer Historie"
+      ],
+      "inputs": [
+        "Rechnung",
+        "Änderungsanfrage",
+        "Onboarding-Fall",
+        "Support-Ticket",
+        "Code-Änderung"
+      ],
+      "inputsRest": "Alles, was Sie sonst bearbeiten",
+      "stages": [
+        {
+          "name": "Aufnahme",
+          "gloss": "Was tatsächlich angefragt wurde.",
+          "highlight": false
+        },
+        {
+          "name": "Entwurf",
+          "gloss": "Wie es umgesetzt wird – schriftlich festgehalten.",
+          "highlight": false
+        },
+        {
+          "name": "Umsetzung",
+          "gloss": "Die Arbeit, erledigt auf Basis dieser Entscheidung.",
+          "highlight": false
+        },
+        {
+          "name": "Prüfung",
+          "gloss": "Getestet gegen die Anfrage, nicht gegen das Ergebnis.",
+          "highlight": false
+        },
+        {
+          "name": "Verifikation",
+          "gloss": "Der Nachweis, dass jeder Schritt getan hat, was von ihm verlangt wurde.",
+          "highlight": true
+        },
+        {
+          "name": "Übergabe",
+          "gloss": "Freigabe, Genehmigung oder Pull Request.",
+          "highlight": false
+        }
+      ],
+      "outcome": {
+        "label": "Freigegeben",
+        "note": "Mit einem Nachweis, wie es dazu kam."
+      },
+      "returnNote": "Fehler – zurück zur Stufe, die gescheitert ist",
+      "claim": "Jede Stufe muss die vorherige erfüllen. Nichts geht bei einer Warnung weiter."
+    },
     "proofTitle": "Für AEM-Delivery konzipiert",
     "proofItems": [
       "Adobe Experience Manager",

@@ -45,7 +45,7 @@ export const UI_STRINGS: Record<
 		primaryNavAria: string;
 		languageNavAria: string;
 		brandHomeAria: (siteName: string) => string;
-		videoPlaceholderAria: string;
+		flowInputsAria: string;
 		platformCapabilitiesAria: string;
 	}
 > = {
@@ -56,7 +56,7 @@ export const UI_STRINGS: Record<
 		primaryNavAria: 'Primary navigation',
 		languageNavAria: 'Language',
 		brandHomeAria: (siteName) => `${siteName} home`,
-		videoPlaceholderAria: 'Placeholder for the future AgenticDraft overview video',
+		flowInputsAria: 'Work items that enter the flow',
 		platformCapabilitiesAria: 'Platform capabilities',
 	},
 	de: {
@@ -66,7 +66,7 @@ export const UI_STRINGS: Record<
 		primaryNavAria: 'Hauptnavigation',
 		languageNavAria: 'Sprache',
 		brandHomeAria: (siteName) => `Zur Startseite von ${siteName}`,
-		videoPlaceholderAria: 'Platzhalter für das kommende AgenticDraft-Übersichtsvideo',
+		flowInputsAria: 'Vorgänge, die in den Ablauf eingehen',
 		platformCapabilitiesAria: 'Plattform-Funktionen',
 	},
 };

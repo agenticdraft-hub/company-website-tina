@@ -20,6 +20,63 @@
       "status": "Overview video coming soon",
       "meta": "16:9 · overview film"
     },
+    "flow": {
+      "eyebrow": "One governed flow",
+      "meta": "Any work item · any system · any industry",
+      "heading": "Every business runs these six stages.",
+      "headingLine2": "Almost nobody runs the fifth.",
+      "pledges": [
+        "Every decision recorded",
+        "Every check traced to the request",
+        "Every handover carries its trail"
+      ],
+      "inputs": [
+        "Invoice",
+        "Change request",
+        "Onboarding case",
+        "Support ticket",
+        "Code change"
+      ],
+      "inputsRest": "Whatever else you run",
+      "stages": [
+        {
+          "name": "Intake",
+          "gloss": "What was actually asked for.",
+          "highlight": false
+        },
+        {
+          "name": "Design",
+          "gloss": "How it will be handled, written down.",
+          "highlight": false
+        },
+        {
+          "name": "Execution",
+          "gloss": "The work, done against that decision.",
+          "highlight": false
+        },
+        {
+          "name": "Checking",
+          "gloss": "Tested against the request, not the output.",
+          "highlight": false
+        },
+        {
+          "name": "Verification",
+          "gloss": "Evidence that every step did what was asked of it.",
+          "highlight": true
+        },
+        {
+          "name": "Handover",
+          "gloss": "Sign-off, approval or pull request.",
+          "highlight": false
+        }
+      ],
+      "outcome": {
+        "label": "Signed off",
+        "note": "And a record of how it got there."
+      },
+      "returnNote": "Fail — returns to the stage that failed",
+      "claim": "Every stage has to satisfy the one before it. Nothing advances on a warning."
+    },
     "proofTitle": "Designed around AEM delivery",
     "proofItems": [
       "Adobe Experience Manager",

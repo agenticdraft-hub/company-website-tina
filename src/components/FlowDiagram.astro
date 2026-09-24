@@ -1,0 +1,157 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { CmsFlow } from '../lib/data';
+import { uiStrings } from '../lib/i18n';
+
+interface Props {
+	flow?: CmsFlow | null;
+	locale?: string;
+}
+
+const { flow, locale } = Astro.props;
+const ui = uiStrings(locale);
+const pledges = (flow?.pledges ?? []).filter((item): item is string => Boolean(item));
+const inputs = (flow?.inputs ?? []).filter((item): item is string => Boolean(item));
+const stages = (flow?.stages ?? []).filter((stage) => stage !== null);
+
+// Numbers are derived from index, like the Approach and Workflow sections.
+const stageNumber = (index: number) => String(index + 1).padStart(2, '0');
+
+/*
+ * Geometry for the wide layout, in rem so it scales with the reader's font size.
+ * The work items sit on fixed-height rows centred on the rail, and the fan's
+ * lines run from each row's centre to the rail's start. `railY` is the rail's
+ * distance from the top of the track: a stage's marker centre (number row +
+ * gap + half the marker) or half the work-item column, whichever is taller.
+ */
+const ROW = 1.875;
+const GATE_CENTRE = 2.6875;
+const FAN_WIDTH = 4;
+// The SVG draws in px at the default 16px root, so its dash pattern and stroke
+// width read as px; CSS sizes it in rem and it scales with the rest.
+const PX = 16;
+const rows = inputs.length + (flow?.inputsRest ? 1 : 0);
+const railY = Math.max(GATE_CENTRE, (rows * ROW) / 2);
+const inputsTop = railY - (rows * ROW) / 2;
+const fanHeight = Math.max(railY * 2, inputsTop + rows * ROW);
+const fanLines = Array.from({ length: rows }, (_, i) => ({
+	y: (inputsTop + ROW / 2 + i * ROW) * PX,
+	rest: Boolean(flow?.inputsRest) && i === rows - 1,
+}));
+const trackStyle = [
+	`--rail-y: ${railY}rem`,
+	`--inputs-top: ${inputsTop}rem`,
+	`--stages-top: ${railY - GATE_CENTRE}rem`,
+	`--stage-count: ${Math.max(stages.length, 1)}`,
+].join('; ');
+---
+
+{
+	flow && (
+		<section class="flow reveal" aria-labelledby="flow-title">
+			<div class="flow-top">
+				<p class="eyebrow flow-eyebrow" data-tina-field={tinaField(flow, 'eyebrow')}>
+					<span /> {flow.eyebrow}
+				</p>
+				{flow.meta && (
+					<p class="flow-meta" data-tina-field={tinaField(flow, 'meta')}>
+						{flow.meta}
+					</p>
+				)}
+			</div>
+
+			<div class="flow-head">
+				<h2 id="flow-title" class="flow-title">
+					<span data-tina-field={tinaField(flow, 'heading')}>{flow.heading}</span>
+					{flow.headingLine2 && (
+						<>
+							<br />
+							<span data-tina-field={tinaField(flow, 'headingLine2')}>{flow.headingLine2}</span>
+						</>
+					)}
+				</h2>
+				{pledges.length > 0 && (
+					<ul class="flow-pledges">
+						{pledges.map((item, index) => (
+							<li data-tina-field={tinaField(flow, 'pledges', index)}>{item}</li>
+						))}
+					</ul>
+				)}
+			</div>
+
+			<div class="flow-track" style={trackStyle}>
+				{rows > 0 && (
+					<div class="flow-inputs">
+						<ul aria-label={ui.flowInputsAria}>
+							{inputs.map((item, index) => (
+								<li data-tina-field={tinaField(flow, 'inputs', index)}>{item}</li>
+							))}
+							{flow.inputsRest && (
+								<li class="flow-inputs-rest" data-tina-field={tinaField(flow, 'inputsRest')}>
+									{flow.inputsRest}
+								</li>
+							)}
+						</ul>
+						<svg
+							class="flow-fan"
+							aria-hidden="true"
+							focusable="false"
+							viewBox={`0 0 ${FAN_WIDTH * PX} ${fanHeight * PX}`}
+							style={`height: ${fanHeight}rem`}
+							preserveAspectRatio="none"
+						>
+							{fanLines.map((line) => (
+								<line
+									x1="0"
+									y1={line.y}
+									x2={FAN_WIDTH * PX}
+									y2={railY * PX}
+									class={line.rest ? 'is-rest' : undefined}
+								/>
+							))}
+						</svg>
+					</div>
+				)}
+
+				<ol class="flow-stages">
+					{stages.map((stage, index) => (
+						<li
+							class:list={['flow-stage', { 'is-key': stage.highlight }]}
+							data-tina-field={tinaField(flow, 'stages', index)}
+						>
+							<span class="flow-num" aria-hidden="true">{stageNumber(index)}</span>
+							<h3 data-tina-field={tinaField(stage, 'name')}>{stage.name}</h3>
+							<p class="preserve-lines" data-tina-field={tinaField(stage, 'gloss')}>
+								{stage.gloss}
+							</p>
+						</li>
+					))}
+				</ol>
+
+				{flow.outcome?.label && (
+					<p class="flow-outcome">
+						<strong data-tina-field={tinaField(flow.outcome, 'label')}>{flow.outcome.label}</strong>
+						{flow.outcome.note && (
+							<span data-tina-field={tinaField(flow.outcome, 'note')}>{flow.outcome.note}</span>
+						)}
+					</p>
+				)}
+
+				{flow.returnNote && (
+					<p class="flow-return" data-tina-field={tinaField(flow, 'returnNote')}>
+						<svg aria-hidden="true" focusable="false" viewBox="0 0 14 16">
+							<path d="M13 1 L1 8 L13 15" />
+						</svg>
+						{flow.returnNote}
+					</p>
+				)}
+			</div>
+
+			{flow.claim && (
+				<p class="flow-claim preserve-lines" data-tina-field={tinaField(flow, 'claim')}>
+					{flow.claim}
+				</p>
+			)}
+		</section>
+	)
+}
