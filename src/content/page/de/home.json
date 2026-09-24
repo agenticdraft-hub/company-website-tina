@@ -86,22 +86,22 @@
     ]
   },
   "approach": {
-    "eyebrow": "Warum AgenticDraft",
-    "heading": "Automatisierung, die Kontext",
-    "headingLine2": "durchgängig mitführt.",
-    "intro": "AEM-Delivery erstreckt sich über Tickets, Repositories, Designs, Inhalte, Browser und Release-Kontrollen. AgenticDraft verbindet diesen Arbeitskontext von einer Stufe zur nächsten.",
+    "eyebrow": "AEM und Edge Delivery Services",
+    "heading": "Jeder Prozess, im Allgemeinen.",
+    "headingLine2": "AEM und Edge Delivery, in der Tiefe.",
+    "intro": "Der Ablauf funktioniert für jeden Prozess. Auf diesen beiden Plattformen arbeiten wir seit sieben Jahren – und hier reicht die Automatisierung weiter als ein allgemeiner Agent: bis in Dialoge, Inhaltsstrukturen, Design-Tokens und Veröffentlichung.",
     "principles": [
       {
-        "title": "Konfigurationsgetrieben",
-        "body": "Ihre Build-Befehle, Konventionen und Branch-Regeln liegen in einer gemeinsamen Konfiguration – nicht in verstreuten Prompts."
+        "title": "Live-AEM statt Vermutungen",
+        "body": "Komponentendialoge, Seitenstruktur und Inhalte werden über MCP aus Ihrer laufenden Instanz gelesen. Der Agent baut gegen das, was tatsächlich da ist – nicht gegen eine Annahme darüber."
       },
       {
-        "title": "Kontextverbunden",
-        "body": "Führt Work Items, Codebasen, Figma-Designs, Live-AEM-Inhalte und Browser-Nachweise zusammen."
+        "title": "Von Figma zur produktiven Komponente",
+        "body": "Design-Tokens werden auf Ihre bestehenden SCSS-Variablen und Ihre BEM-Namensgebung abgebildet. Der Prototyp wird im echten Browser gegen das Design geprüft, bevor produktiver Code entsteht."
       },
       {
-        "title": "Prüfpunkte eingebaut",
-        "body": "Readiness-Checks, Validierungs-Gates, Accessibility-Reviews und Secret-Scans bleiben Teil des Workflows."
+        "title": "Edge Delivery, Performance zuerst",
+        "body": "Dokumentbasierte Blöcke nach Ihren Projektkonventionen – Barrierefreiheit und Performance werden im selben Durchgang geprüft, nicht erst nach dem Launch."
       }
     ]
   },

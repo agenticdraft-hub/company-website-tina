@@ -87,22 +87,22 @@
     ]
   },
   "approach": {
-    "eyebrow": "Why AgenticDraft",
-    "heading": "Automation that carries context",
-    "headingLine2": "through delivery.",
-    "intro": "AEM delivery crosses tickets, repositories, designs, content, browsers, and release controls. AgenticDraft connects that working context from one stage to the next.",
+    "eyebrow": "AEM and Edge Delivery Services",
+    "heading": "Any process, in general.",
+    "headingLine2": "AEM and Edge Delivery, in depth.",
+    "intro": "The flow runs on any process. These two platforms are where we have spent the last seven years, and where the automation reaches further than a general-purpose agent can — into dialogs, content structure, design tokens and publishing.",
     "principles": [
       {
-        "title": "Config-driven",
-        "body": "Your build commands, conventions, and branch rules live in one shared configuration—not scattered prompts."
+        "title": "Live AEM, not guesswork",
+        "body": "Component dialogs, page structure and content are read from your running instance through MCP. The agent builds against what is actually there, not against an assumption about it."
       },
       {
-        "title": "Context-connected",
-        "body": "Bring together work items, codebases, Figma designs, live AEM content, and browser evidence."
+        "title": "Figma to a production component",
+        "body": "Design tokens map onto your existing SCSS variables and your BEM naming. The prototype is checked against the design in a real browser before any production code is written."
       },
       {
-        "title": "Gated by design",
-        "body": "Readiness checks, validation gates, accessibility review, and secret scanning stay inside the workflow."
+        "title": "Edge Delivery, performance first",
+        "body": "Document-authored blocks built to your project's conventions, with accessibility and performance checked in the same pass rather than after launch."
       }
     ]
   },
