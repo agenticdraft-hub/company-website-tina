@@ -77,12 +77,13 @@
       "returnNote": "Fail — returns to the stage that failed",
       "claim": "Every stage has to satisfy the one before it. Nothing advances on a warning."
     },
-    "proofTitle": "Designed around AEM delivery",
+    "proofTitle": "Automate any process",
     "proofItems": [
       "Adobe Experience Manager",
       "Edge Delivery Services",
       "Multi-agent workflows",
-      "Design-to-code"
+      "Design-to-code",
+      "Finance"
     ]
   },
   "approach": {
