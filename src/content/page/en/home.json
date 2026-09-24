@@ -1,11 +1,11 @@
 {
   "seoTitle": "AgenticDraft — AEM automation, from ticket to production",
-  "seoDescription": "AgenticDraft builds governed agentic automation for Adobe Experience Manager and\nEdge Delivery Services.",
+  "seoDescription": "AgenticDraft builds governed agentic automation for \n\nAdobe Experience Manager and\nEdge Delivery Services.",
   "hero": {
     "eyebrow": "AEM + EDS delivery automation",
-    "headline": "From ticket to production.",
-    "headlineAccent": "One governed flow.",
-    "lede": "AgenticDraft connects requirements, design, implementation, testing, verification, and pull-request preparation in one governed workflow for Adobe Experience Manager teams.",
+    "headline": "From request to sign-off",
+    "headlineAccent": "One deterministic process.",
+    "lede": "Intake, design, execution, checking, verification, handover. Every business process already runs those six stages — an invoice, an onboarding case, a code change, a regulatory submission. \nWhat none of them run is the part where each stage has to prove it did what the stage before it asked for.\nAgenticDraft is that part. You get the output, and the trail behind it.",
     "primaryCta": {
       "label": "Explore the workflow",
       "href": "#workflow"
