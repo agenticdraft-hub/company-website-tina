@@ -10,8 +10,8 @@
   "chapters": [
     {
       "marker": "Where we came from",
-      "title": "Adobe Experience Manager, at enterprise scale",
-      "body": "Consulting for Fortune 500 companies, mostly on Adobe Experience Manager and Edge Delivery Services. Enterprise web platforms, content systems, design-to-code pipelines, automated delivery. Large brands, large budgets, and engineering standards most organisations never get close to."
+      "title": "Enterprise platforms, and the processes behind them",
+      "body": "Consulting for Fortune 500 companies, mostly on Adobe Experience Manager and Edge Delivery Services, with React and Angular front ends on top. Enterprise web platforms, content systems, design-to-code pipelines, automated delivery. Large brands, large budgets, and engineering standards most organisations never get close to.\nThen the half of the work that never touches a browser: eight years inside a regulated financial-services business — billing and invoicing logic, debt-collection workflows, national-registry integrations, and seven production automations built and documented end to end on UiPath. Later, multi-agent orchestration across those same processes, which cut time-to-information by more than 40%."
     },
     {
       "marker": "What we noticed",

@@ -10,8 +10,8 @@
   "chapters": [
     {
       "marker": "Woher wir kommen",
-      "title": "Adobe Experience Manager, in Konzerngröße",
-      "body": "Beratung für Fortune-500-Unternehmen, überwiegend auf Adobe Experience Manager und Edge Delivery Services. Enterprise-Webplattformen, Content-Systeme, Design-to-Code-Pipelines, automatisierte Auslieferung. Große Marken, große Budgets und Engineering-Standards, an die die meisten Organisationen nie herankommen."
+      "title": "Enterprise-Plattformen — und die Prozesse dahinter",
+      "body": "Beratung für Fortune-500-Unternehmen, überwiegend auf Adobe Experience Manager und Edge Delivery Services, mit React- und Angular-Frontends darauf. Enterprise-Webplattformen, Content-Systeme, Design-to-Code-Pipelines, automatisierte Auslieferung. Große Marken, große Budgets und Engineering-Standards, an die die meisten Organisationen nie herankommen.\nDazu die Hälfte der Arbeit, die nie einen Browser berührt: acht Jahre in einem regulierten Finanzdienstleister — Abrechnungs- und Rechnungslogik, Inkasso-Workflows, Registerintegrationen und sieben produktive Automatisierungen, auf UiPath gebaut und vollständig dokumentiert. Später Multi-Agenten-Orchestrierung über genau diese Prozesse, die die Zeit bis zur Information um mehr als 40 % verkürzt hat."
     },
     {
       "marker": "Was uns aufgefallen ist",
