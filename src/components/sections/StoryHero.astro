@@ -1,0 +1,33 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { CmsStoryHero } from '../../lib/data';
+
+interface Props {
+	hero?: CmsStoryHero | null;
+}
+
+const { hero } = Astro.props;
+---
+
+{
+	hero && (
+		<section class="story-hero" aria-labelledby="story-title">
+			<div class="hero-glow" aria-hidden="true" />
+			<p class="eyebrow" data-tina-field={tinaField(hero, 'eyebrow')}>
+				<span /> {hero.eyebrow}
+			</p>
+			<h1 id="story-title">
+				<span data-tina-field={tinaField(hero, 'heading')}>{hero.heading}</span>
+				{hero.headingAccent && (
+					<>
+						<br />
+						<em data-tina-field={tinaField(hero, 'headingAccent')}>{hero.headingAccent}</em>
+					</>
+				)}
+			</h1>
+			<p class="hero-lede preserve-lines" data-tina-field={tinaField(hero, 'lede')}>
+				{hero.lede}
+			</p>
+		</section>
+	)
+}

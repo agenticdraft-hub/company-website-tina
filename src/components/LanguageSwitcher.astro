@@ -1,12 +1,15 @@
 ---
-import { DEFAULT_LOCALE, LOCALES, LOCALE_META, localePath, uiStrings } from '../lib/i18n';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_META, localeHref, uiStrings, type RouteKey } from '../lib/i18n';
 
 interface Props {
 	/** The locale currently being rendered. */
 	locale?: string;
+	/** The page being rendered, so each link points at that page in the other
+	 * locale rather than always at the locale's home. */
+	route?: RouteKey;
 }
 
-const { locale = DEFAULT_LOCALE } = Astro.props;
+const { locale = DEFAULT_LOCALE, route = 'home' } = Astro.props;
 const ui = uiStrings(locale);
 
 // The active locale renders as text rather than a link: a page linking to
@@ -25,7 +28,7 @@ const current = LOCALE_META[locale as keyof typeof LOCALE_META] ?? LOCALE_META[D
 				<span class="lang-switch-sep" aria-hidden="true">
 					·
 				</span>
-				<a href={localePath(code)} lang={LOCALE_META[code].code} hreflang={LOCALE_META[code].code}>
+				<a href={localeHref(code, route)} lang={LOCALE_META[code].code} hreflang={LOCALE_META[code].code}>
 					{LOCALE_META[code].short}
 					<span class="sr-only"> ({LOCALE_META[code].name})</span>
 				</a>
@@ -35,7 +38,7 @@ const current = LOCALE_META[locale as keyof typeof LOCALE_META] ?? LOCALE_META[D
 </nav>
 
 <script>
-	// The switcher links are static (`/`, `/de/`) — a hash anchor only exists at
+	// The switcher links are static (`/`, `/de/story`, …) — a hash anchor only exists at
 	// runtime, so the current one is carried over on click. Switching from
 	// `/de/#workflow` then lands on `/#workflow`, not the top of the page.
 	//

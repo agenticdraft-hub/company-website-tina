@@ -1,7 +1,7 @@
 {
   "seo": {
     "title": "AgenticDraft",
-    "description": "AgenticDraft builds governed agentic automation for Adobe Experience Manager and Edge Delivery Services.",
+    "description": "Any business process run as one flow, with a gate at every stage. Proven on Adobe Experience Manager and Edge Delivery Services delivery.",
     "siteOwner": "AgenticDraft",
     "logo": "/agenticdraft-mark.png"
   },
@@ -13,6 +13,10 @@
     {
       "title": "Workflow",
       "link": "#workflow"
+    },
+    {
+      "title": "Our story",
+      "link": "/story/"
     }
   ],
   "headerCta": {
@@ -20,6 +24,6 @@
     "href": "mailto:hello@agenticdraft.com"
   },
   "footer": {
-    "tagline": "AEM automation from requirement to release."
+    "tagline": "Automating Enterprise Workflows for Fortune 500"
   }
 }

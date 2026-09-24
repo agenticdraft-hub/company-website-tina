@@ -4,7 +4,7 @@ import Header from '../components/Header.astro';
 import Footer from '../components/Footer.astro';
 import TinaIsland from '@tinacms/astro/TinaIsland.astro';
 import { getConfig } from '../lib/data';
-import { uiStrings } from '../lib/i18n';
+import { uiStrings, type RouteKey } from '../lib/i18n';
 import { islands } from '../lib/islands';
 
 interface Props {
@@ -13,9 +13,14 @@ interface Props {
 	image?: string;
 	/** Locale folder under src/content — also the `<html lang>` value. */
 	locale?: string;
+	/** Which page this is. The header needs it to resolve in-page anchors
+	 * against the home page and to point the language switcher at this page's
+	 * counterpart, and it travels in the island params so a live re-render of
+	 * the header keeps both correct. */
+	route?: RouteKey;
 }
 
-const { title, description, image, locale = 'en' } = Astro.props;
+const { title, description, image, locale = 'en', route = 'home' } = Astro.props;
 const config = (await getConfig(locale)).data?.config ?? null;
 const ui = uiStrings(locale);
 ---
@@ -27,8 +32,8 @@ const ui = uiStrings(locale);
 	</head>
 	<body>
 		<a class="skip-link" href="#main">{ui.skipLink}</a>
-		<TinaIsland name="global" wrapper={islands.global.wrapper} params={{ locale }}>
-			<Header config={config} {locale} />
+		<TinaIsland name="global" wrapper={islands.global.wrapper} params={{ locale, route }}>
+			<Header config={config} {locale} {route} />
 		</TinaIsland>
 		<slot />
 		<TinaIsland name="global-footer" wrapper={islands['global-footer'].wrapper} params={{ locale }}>

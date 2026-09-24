@@ -1,9 +1,11 @@
 ---
 import { tinaField } from '@tinacms/astro/tina-field';
-import type { CmsClosing } from '../../lib/data';
+import type { CmsClosing, CmsStoryClosing } from '../../lib/data';
 
 interface Props {
-	closing?: CmsClosing | null;
+	/** Both the home and story collections generate this same shape, and the
+	 * section is identical on both pages, so it takes either. */
+	closing?: CmsClosing | CmsStoryClosing | null;
 }
 
 const { closing } = Astro.props;

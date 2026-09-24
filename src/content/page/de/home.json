@@ -1,18 +1,19 @@
 {
-  "seoTitle": "AgenticDraft — AEM-Automatisierung vom Ticket bis zur Produktion",
-  "seoDescription": "AgenticDraft entwickelt gesteuerte agentische Automatisierung für Adobe Experience Manager und Edge Delivery Services.",
+  "seoTitle": "AgenticDraft — von der Anfrage bis zur Freigabe",
+  "seoDescription": "Jeder Geschäftsprozess als ein Ablauf, mit einem Prüfpunkt auf jeder Stufe. Erprobt in der Delivery mit Adobe Experience Manager und Edge Delivery Services.",
   "hero": {
-    "eyebrow": "AEM- und EDS-Automatisierung",
-    "headline": "Vom Ticket bis zur Produktion.",
-    "headlineAccent": "Ein gesteuerter Ablauf.",
-    "lede": "AgenticDraft verbindet Anforderungen, Design, Implementierung, Tests, Verifikation und Pull-Request-Vorbereitung in einem gesteuerten Workflow für Adobe-Experience-Manager-Teams.",
+    "eyebrow": "Geschäftsprozess- und Delivery-Automatisierung",
+    "headline": "Von der Anfrage bis zur Freigabe",
+    "headlineAccent": "Ein deterministischer Prozess.",
+    "lede": "Aufnahme, Entwurf, Umsetzung, Prüfung, Verifikation, Übergabe. Jeder Geschäftsprozess durchläuft diese sechs Stufen bereits — eine Rechnung, ein Onboarding-Fall, eine Codeänderung, eine regulatorische Einreichung.\nWas keiner von ihnen durchläuft: den Teil, in dem jede Stufe nachweisen muss, dass sie getan hat, was die vorherige von ihr verlangt hat.\nAgenticDraft ist dieser Teil. Sie bekommen das Ergebnis — und die Nachweiskette dahinter.",
+    "ledeNote": "AEM- und EDS-Pipelines laufen bereits produktiv bei Fortune-500-Unternehmen.",
     "primaryCta": {
       "label": "Workflow erkunden",
       "href": "#workflow"
     },
     "secondaryCta": {
-      "label": "Über Ihren AEM-Workflow sprechen",
-      "href": "mailto:hello@agenticdraft.com"
+      "label": "Unsere Geschichte lesen",
+      "href": "/de/story/"
     },
     "video": {
       "label": "AgenticDraft-Produktübersicht",
@@ -20,7 +21,7 @@
       "meta": "16:9 · Übersichtsfilm"
     },
     "flow": {
-      "eyebrow": "Ein gesteuerter Ablauf",
+      "eyebrow": "Sechs Stufen, sechs Prüfpunkte",
       "meta": "Jeder Vorgang · jedes System · jede Branche",
       "heading": "Jedes Unternehmen durchläuft diese sechs Stufen.",
       "headingLine2": "Kaum eines durchläuft die fünfte.",
@@ -99,7 +100,7 @@
         "body": "Führt Work Items, Codebasen, Figma-Designs, Live-AEM-Inhalte und Browser-Nachweise zusammen."
       },
       {
-        "title": "Bewusst gesteuert",
+        "title": "Prüfpunkte eingebaut",
         "body": "Readiness-Checks, Validierungs-Gates, Accessibility-Reviews und Secret-Scans bleiben Teil des Workflows."
       }
     ]
@@ -134,8 +135,8 @@
   },
   "closing": {
     "eyebrow": "Den Workflow auf Ihr Team zuschneiden",
-    "heading": "Ein gesteuerter AEM-Workflow,",
-    "headingAccent": "gebaut für Ihr Team.",
+    "heading": "Jede Stufe nachgewiesen,",
+    "headingAccent": "auf Ihr Team zugeschnitten.",
     "cta": {
       "label": "Gespräch starten",
       "href": "mailto:hello@agenticdraft.com"

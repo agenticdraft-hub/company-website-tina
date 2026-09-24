@@ -1,19 +1,19 @@
 {
-  "seoTitle": "AgenticDraft — AEM automation, from ticket to production",
-  "seoDescription": "AgenticDraft builds governed agentic automation for \n\nAdobe Experience Manager and\nEdge Delivery Services.",
+  "seoTitle": "AgenticDraft — from request to sign-off",
+  "seoDescription": "Any business process run as one flow, with a gate at every stage. Proven on Adobe Experience Manager and Edge Delivery Services delivery.",
   "hero": {
-    "eyebrow": "Business processes and  delivery automation",
+    "eyebrow": "Business process and delivery automation",
     "headline": "From request to sign-off",
     "headlineAccent": "One deterministic process.",
     "lede": "Intake, design, execution, checking, verification, handover. Every business process already runs those six stages — an invoice, an onboarding case, a code change, a regulatory submission. \nWhat none of them run is the part where each stage has to prove it did what the stage before it asked for.\nAgenticDraft is that part. You get the output, and the trail behind it.",
-    "ledeNote": "AEM and EDS pipelines already working in production in the fortune 500 companies.",
+    "ledeNote": "AEM and EDS pipelines already running in production at Fortune 500 companies.",
     "primaryCta": {
       "label": "Explore the workflow",
       "href": "#workflow"
     },
     "secondaryCta": {
-      "label": "Discuss your AEM workflow",
-      "href": "mailto:hello@agenticdraft.com"
+      "label": "Read our story",
+      "href": "/story/"
     },
     "video": {
       "label": "AgenticDraft product overview",
@@ -21,7 +21,7 @@
       "meta": "16:9 · overview film"
     },
     "flow": {
-      "eyebrow": "One governed flow",
+      "eyebrow": "Six stages, six gates",
       "meta": "Any work item · any system · any industry",
       "heading": "Every business runs these six stages.",
       "headingLine2": "Almost nobody runs the fifth.",
@@ -101,7 +101,7 @@
         "body": "Bring together work items, codebases, Figma designs, live AEM content, and browser evidence."
       },
       {
-        "title": "Governed by design",
+        "title": "Gated by design",
         "body": "Readiness checks, validation gates, accessibility review, and secret scanning stay inside the workflow."
       }
     ]
@@ -136,8 +136,8 @@
   },
   "closing": {
     "eyebrow": "Shape the workflow around your team",
-    "heading": "A governed AEM workflow,",
-    "headingAccent": "built for your team.",
+    "heading": "Every stage proven,",
+    "headingAccent": "built around your team.",
     "cta": {
       "label": "Start a conversation",
       "href": "mailto:hello@agenticdraft.com"

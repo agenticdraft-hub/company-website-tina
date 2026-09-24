@@ -1,0 +1,86 @@
+---
+import { tinaField } from '@tinacms/astro/tina-field';
+import type { CmsStory, CmsStoryChapter, CmsStorySignature } from '../../lib/data';
+import { uiStrings } from '../../lib/i18n';
+
+interface Props {
+	chapters?: CmsStory['chapters'];
+	pullQuote?: string | null;
+	signature?: CmsStorySignature | null;
+	locale?: string;
+}
+
+const { chapters, pullQuote, signature, locale } = Astro.props;
+const ui = uiStrings(locale);
+const items = (chapters ?? []).filter((item): item is CmsStoryChapter => item !== null);
+
+// The pull quote sits between the chapters rather than after them: a line that
+// lands mid-read carries further than one bolted onto the end, and it gives the
+// page a break in rhythm at roughly the point a reader decides to stop.
+const breakAfter = items.length > 2 ? Math.ceil(items.length / 2) : items.length;
+const before = items.slice(0, breakAfter);
+const after = items.slice(breakAfter);
+---
+
+<section class="story" aria-label={ui.storySectionAria}>
+	<ol class="story-list">
+		{
+			before.map((chapter) => (
+				<li class="story-chapter reveal">
+					<p class="story-marker" data-tina-field={tinaField(chapter, 'marker')}>
+						{chapter.marker}
+					</p>
+					<div class="story-copy">
+						<h2 data-tina-field={tinaField(chapter, 'title')}>{chapter.title}</h2>
+						<p class="preserve-lines" data-tina-field={tinaField(chapter, 'body')}>
+							{chapter.body}
+						</p>
+					</div>
+				</li>
+			))
+		}
+	</ol>
+
+	{
+		pullQuote && (
+			<blockquote class="story-quote reveal">
+				<p>{pullQuote}</p>
+			</blockquote>
+		)
+	}
+
+	{
+		after.length > 0 && (
+			<ol class="story-list">
+				{after.map((chapter) => (
+					<li class="story-chapter reveal">
+						<p class="story-marker" data-tina-field={tinaField(chapter, 'marker')}>
+							{chapter.marker}
+						</p>
+						<div class="story-copy">
+							<h2 data-tina-field={tinaField(chapter, 'title')}>{chapter.title}</h2>
+							<p class="preserve-lines" data-tina-field={tinaField(chapter, 'body')}>
+								{chapter.body}
+							</p>
+						</div>
+					</li>
+				))}
+			</ol>
+		)
+	}
+
+	{
+		signature?.name && (
+			<div class="story-signature reveal">
+				{signature.note && (
+					<p class="story-signature-note" data-tina-field={tinaField(signature, 'note')}>
+						{signature.note}
+					</p>
+				)}
+				<p class="story-signature-name" data-tina-field={tinaField(signature, 'name')}>
+					{signature.name}
+				</p>
+			</div>
+		)
+	}
+</section>

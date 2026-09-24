@@ -22,6 +22,54 @@ export const localePath = (locale: string): string =>
 	locale === DEFAULT_LOCALE ? '/' : `/${locale}/`;
 
 /**
+ * The site's routes, as slugs appended to a locale root. Adding a page means
+ * adding an entry here plus `src/pages/<slug>.astro` and
+ * `src/pages/<locale>/<slug>.astro`.
+ *
+ * This exists because the header, the hreflang alternates and the language
+ * switcher all need to answer "what is the counterpart of this page in that
+ * locale?", and before there was a second page they each assumed the answer
+ * was always the locale root.
+ */
+export const ROUTES = {
+	home: '',
+	story: 'story',
+} as const;
+
+export type RouteKey = keyof typeof ROUTES;
+
+/**
+ * Site-root-relative URL for a route in a locale: `/`, `/de/`, `/story/`,
+ * `/de/story/`.
+ *
+ * The trailing slash is deliberate. The build emits directory-style output
+ * (`dist/client/story/index.html`), so `Astro.url.pathname` — and therefore the
+ * canonical tag and the sitemap — is `/story/`. Without the slash here the
+ * hreflang alternates would advertise `/story`, which a crawler reads as a
+ * different URL from the canonical one.
+ */
+export const localeHref = (locale: string, route: RouteKey = 'home'): string => {
+	const root = localePath(locale);
+	const slug = ROUTES[route];
+	return slug ? `${root}${slug}/` : root;
+};
+
+/**
+ * Which route a pathname belongs to, ignoring any locale prefix. Unknown
+ * paths fall back to `home` so a 404 still renders sane alternates.
+ */
+export const routeFromPathname = (pathname: string): RouteKey => {
+	const segments = pathname.split('/').filter(Boolean);
+	const withoutLocale = segments[0] && isLocale(segments[0]) ? segments.slice(1) : segments;
+	const slug = withoutLocale[0] ?? '';
+	return (Object.keys(ROUTES) as RouteKey[]).find((key) => ROUTES[key] === slug) ?? 'home';
+};
+
+/** Narrowing helper for route values arriving as strings (island params). */
+export const isRouteKey = (value: string): value is RouteKey =>
+	Object.prototype.hasOwnProperty.call(ROUTES, value);
+
+/**
  * `code` is the BCP-47 tag for `hreflang` / `lang`; `name` is the accessible
  * label a screen reader announces, since "EN · DE" alone reads as letters.
  * `ogCode` is the `language_TERRITORY` form OpenGraph expects for `og:locale`.
@@ -47,6 +95,7 @@ export const UI_STRINGS: Record<
 		brandHomeAria: (siteName: string) => string;
 		flowInputsAria: string;
 		platformCapabilitiesAria: string;
+		storySectionAria: string;
 	}
 > = {
 	en: {
@@ -58,6 +107,7 @@ export const UI_STRINGS: Record<
 		brandHomeAria: (siteName) => `${siteName} home`,
 		flowInputsAria: 'Work items that enter the flow',
 		platformCapabilitiesAria: 'Platform capabilities',
+		storySectionAria: 'Our story',
 	},
 	de: {
 		skipLink: 'Zum Inhalt springen',
@@ -68,6 +118,7 @@ export const UI_STRINGS: Record<
 		brandHomeAria: (siteName) => `Zur Startseite von ${siteName}`,
 		flowInputsAria: 'Vorgänge, die in den Ablauf eingehen',
 		platformCapabilitiesAria: 'Plattform-Funktionen',
+		storySectionAria: 'Unsere Geschichte',
 	},
 };
 

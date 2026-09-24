@@ -2,22 +2,35 @@
 import { tinaField } from '@tinacms/astro/tina-field';
 import LanguageSwitcher from './LanguageSwitcher.astro';
 import type { CmsConfig } from '../lib/data';
-import { uiStrings } from '../lib/i18n';
+import { localeHref, uiStrings, type RouteKey } from '../lib/i18n';
 
 interface Props {
 	config?: CmsConfig | null;
 	locale?: string;
+	/** Which page the header is rendered on, so the switcher can find its
+	 * counterpart. Passed explicitly rather than read from `Astro.url`: inside
+	 * a Tina island the URL is `/tina-island/global`, not the page's own. */
+	route?: RouteKey;
 }
 
-const { config, locale = 'en' } = Astro.props;
+const { config, locale = 'en', route = 'home' } = Astro.props;
 const ui = uiStrings(locale);
 const siteName = config?.seo?.title ?? 'AgenticDraft';
 const logo = config?.seo?.logo ?? '/agenticdraft-mark.png';
 const navItems = (config?.nav ?? []).filter((item) => item !== null);
+
+// Nav entries are stored as in-page anchors (`#approach`). They only work from
+// the home page, so they're resolved against the locale's home path — from
+// `/story` the link becomes `/#approach` and navigates home to that section.
+const home = localeHref(locale);
+const navHref = (link?: string | null) => {
+	if (!link) return home;
+	return link.startsWith('#') ? `${home}${link}` : link;
+};
 ---
 
 <header class="site-header" data-header>
-	<a class="brand" href="#top" aria-label={ui.brandHomeAria(siteName)}>
+	<a class="brand" href={home} aria-label={ui.brandHomeAria(siteName)}>
 		<img
 			src={logo}
 			alt=""
@@ -42,12 +55,12 @@ const navItems = (config?.nav ?? []).filter((item) => item !== null);
 	<nav id="site-nav" class="site-nav" aria-label={ui.primaryNavAria}>
 		{
 			navItems.map((item) => (
-				<a href={item.link ?? '#'} data-tina-field={tinaField(item, 'title')}>
+				<a href={navHref(item.link)} data-tina-field={tinaField(item, 'title')}>
 					{item.title}
 				</a>
 			))
 		}
-		<LanguageSwitcher {locale} />
+		<LanguageSwitcher {locale} {route} />
 		{
 			config?.headerCta?.label && (
 				<a

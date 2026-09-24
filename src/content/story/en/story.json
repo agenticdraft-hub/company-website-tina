@@ -1,0 +1,51 @@
+{
+  "seoTitle": "Our story — AgenticDraft",
+  "seoDescription": "A decade inside Fortune 500 delivery taught us that the engineering is rarely what slows a project down. AgenticDraft exists to fix the rest of it — and then to leave.",
+  "hero": {
+    "eyebrow": "Our story",
+    "heading": "We spent a decade inside Fortune 500 delivery.",
+    "headingAccent": "We left to fix the part nobody bills for.",
+    "lede": "The code was rarely the problem. Getting a decision made was the problem. Finding out why something had been built that way was the problem. Discovering that the one person who understood it had left in March was the problem.\nWe started AgenticDraft because we got tired of watching capable teams lose to their own process."
+  },
+  "chapters": [
+    {
+      "marker": "Where we came from",
+      "title": "Adobe Experience Manager, at enterprise scale",
+      "body": "Consulting for Fortune 500 companies, mostly on Adobe Experience Manager and Edge Delivery Services. Enterprise web platforms, content systems, design-to-code pipelines, automated delivery. Large brands, large budgets, and engineering standards most organisations never get close to."
+    },
+    {
+      "marker": "What we noticed",
+      "title": "The bottleneck was never technical",
+      "body": "It was the approval chain with eleven names on it. The architecture decision that lived in one person's head. The handover that turned out to be a calendar invite and a link to a repository. Work that should have taken a fortnight took a quarter, everyone involved could see it happening, and nobody was in a position to stop it."
+    },
+    {
+      "marker": "Why we left",
+      "title": "The expertise and the overhead were being sold together",
+      "body": "That is the part that finally got us. The knowledge was worth what clients paid for it. The machinery wrapped around the knowledge was not — and it was the larger of the two invoices. So we left to find out what the first thing looks like without the second."
+    },
+    {
+      "marker": "How we work",
+      "title": "We build ourselves out of a job",
+      "body": "Most consultancies are structured to stay: the longer an engagement runs, the better it goes for them. We are structured to leave. Every engagement ends with workflows your own team runs without us, documentation written for somebody who has never seen the system, and a codebase a new starter can learn from in their first week."
+    },
+    {
+      "marker": "Who it is for",
+      "title": "Fortune 500 practice, without the Fortune 500 invoice",
+      "body": "Enterprise standards are not expensive to apply. They are expensive to discover — and that discovery has already been paid for. What we charge reflects the work rather than the logo on the case study, which is how a company with a modest budget ends up running the same pipeline as one with a nine-figure programme behind it."
+    }
+  ],
+  "pullQuote": "If you still need us in a year, we got something wrong.",
+  "signature": {
+    "note": "Thanks for reading this far.",
+    "name": "The AgenticDraft team"
+  },
+  "closing": {
+    "eyebrow": "Work with us",
+    "heading": "Bring us in early,",
+    "headingAccent": "and plan for us to leave.",
+    "cta": {
+      "label": "Start a conversation",
+      "href": "mailto:hello@agenticdraft.com"
+    }
+  }
+}

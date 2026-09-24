@@ -1,0 +1,37 @@
+---
+import Base from '../layouts/Base.astro';
+import TinaIsland from '@tinacms/astro/TinaIsland.astro';
+import StoryBody from './islands/StoryBody.astro';
+import { DEFAULT_LOCALE } from '../lib/i18n';
+import { getConfig, getStory } from '../lib/data';
+import { islands } from '../lib/islands';
+
+/**
+ * The story page, rendered for a given locale. Mirrors `LocalePage.astro` so
+ * the two pages can't drift apart structurally; the only difference is which
+ * collection it reads and the `route` it hands the layout, which the header
+ * uses to resolve the home-page anchors and the language switcher.
+ */
+interface Props {
+	locale?: string;
+}
+
+const { locale = DEFAULT_LOCALE } = Astro.props;
+
+const story = await getStory(locale);
+const data = story.data?.story;
+if (!data) return new Response('Not Found', { status: 404 });
+
+const config = (await getConfig(locale)).data?.config ?? null;
+---
+
+<Base
+	title={data.seoTitle || config?.seo?.title || 'AgenticDraft'}
+	description={data.seoDescription ?? config?.seo?.description ?? ''}
+	{locale}
+	route="story"
+>
+	<TinaIsland name="story" wrapper={islands.story.wrapper} params={{ locale }} primary>
+		<StoryBody data={data} {locale} />
+	</TinaIsland>
+</Base>

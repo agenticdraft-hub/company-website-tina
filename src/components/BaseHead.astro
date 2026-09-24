@@ -2,7 +2,7 @@
 // Import the global.css file here so that it is included on
 // all pages through the use of the <BaseHead /> component.
 import '../styles/global.css';
-import { DEFAULT_LOCALE, LOCALES, LOCALE_META, localePath } from '../lib/i18n';
+import { DEFAULT_LOCALE, LOCALES, LOCALE_META, localeHref, routeFromPathname } from '../lib/i18n';
 
 interface Props {
 	title: string;
@@ -20,9 +20,11 @@ const {
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-// Each locale's counterpart URL, for the hreflang alternates. A one-pager, so
-// every locale is a single page and the mapping is just the locale prefix.
-const alternateURL = (code: string) => new URL(localePath(code), Astro.site);
+// Each locale's counterpart URL, for the hreflang alternates. Derived from the
+// current path so `/story` points at `/de/story` rather than at the German
+// home page — the mapping was the locale prefix alone while this was a one-pager.
+const route = routeFromPathname(Astro.url.pathname);
+const alternateURL = (code: string) => new URL(localeHref(code, route), Astro.site);
 ---
 
 <!--
@@ -45,8 +47,11 @@ const alternateURL = (code: string) => new URL(localePath(code), Astro.site);
 <!-- Fonts -->
 <link rel="preconnect" href="https://fonts.googleapis.com" />
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+<!-- Caveat is used for the sign-off on the story page only. It is a typeset
+     script face, not a scanned signature: the page should read as written by
+     a person without pretending to an artefact that does not exist. -->
 <link
-	href="https://fonts.googleapis.com/css2?family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
+	href="https://fonts.googleapis.com/css2?family=Caveat:wght@500;600&family=DM+Mono:wght@400;500&family=Manrope:wght@400;500;600;700&display=swap"
 	rel="stylesheet"
 />
 

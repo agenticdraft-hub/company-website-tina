@@ -60,7 +60,7 @@ export const GlobalConfigCollection: Collection = {
 			name: 'nav',
 			label: 'Primary Navigation',
 			description:
-				'Links in the header. These are in-page anchors, so use values like #approach.',
+				'Links in the header. Use an in-page anchor (#approach) to jump to a section of the home page — these work from any page — or a path (/story) for another page.',
 			type: 'object',
 			list: true,
 			ui: {
@@ -78,7 +78,7 @@ export const GlobalConfigCollection: Collection = {
 					label: 'Link URL',
 					type: 'string',
 					required: true,
-					description: 'An in-page anchor (#approach) or a full URL.',
+					description: 'An in-page anchor (#approach), a path (/story), or a full URL.',
 				},
 			],
 		},

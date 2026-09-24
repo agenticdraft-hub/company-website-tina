@@ -1,0 +1,24 @@
+---
+import StoryHero from '../sections/StoryHero.astro';
+import StoryChapters from '../sections/StoryChapters.astro';
+import Closing from '../sections/Closing.astro';
+import type { CmsStory } from '../../lib/data';
+
+interface Props {
+	data?: CmsStory | null;
+	locale?: string;
+}
+
+const { data, locale } = Astro.props;
+---
+
+<main id="main">
+	<StoryHero hero={data?.hero} />
+	<StoryChapters
+		chapters={data?.chapters}
+		pullQuote={data?.pullQuote}
+		signature={data?.signature}
+		{locale}
+	/>
+	<Closing closing={data?.closing} />
+</main>

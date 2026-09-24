@@ -22,8 +22,14 @@ export const getHome = (locale = 'en') =>
 		priority: 'primary',
 	});
 
+export const getStory = (locale = 'en') =>
+	requestWithMetadata(client.queries.story({ relativePath: `${locale}/story.json` }), {
+		priority: 'primary',
+	});
+
 export type CmsConfig = Awaited<ReturnType<typeof getConfig>>['data']['config'];
 export type CmsPage = Awaited<ReturnType<typeof getHome>>['data']['page'];
+export type CmsStory = Awaited<ReturnType<typeof getStory>>['data']['story'];
 
 export type CmsConfigNav = NonNullable<NonNullable<CmsConfig['nav']>[number]>;
 export type CmsConfigSeo = NonNullable<CmsConfig['seo']>;
@@ -39,3 +45,10 @@ export type CmsPrinciple = NonNullable<NonNullable<CmsApproach['principles']>[nu
 export type CmsStep = NonNullable<NonNullable<CmsWorkflow['steps']>[number]>;
 export type CmsAction = NonNullable<CmsHero['primaryCta']>;
 export type CmsFlow = NonNullable<CmsHero['flow']>;
+
+export type CmsStoryHero = NonNullable<CmsStory['hero']>;
+export type CmsStoryChapter = NonNullable<NonNullable<CmsStory['chapters']>[number]>;
+export type CmsStorySignature = NonNullable<CmsStory['signature']>;
+// Structurally identical to `CmsClosing`, but generated from its own
+// collection, so `Closing.astro` accepts either rather than being duplicated.
+export type CmsStoryClosing = NonNullable<CmsStory['closing']>;

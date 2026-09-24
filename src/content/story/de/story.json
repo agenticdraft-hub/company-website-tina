@@ -1,0 +1,51 @@
+{
+  "seoTitle": "Unsere Geschichte — AgenticDraft",
+  "seoDescription": "Zehn Jahre in der Fortune-500-Delivery haben uns gezeigt: Die Technik ist selten das, was ein Projekt ausbremst. AgenticDraft gibt es, um den Rest zu lösen — und danach wieder zu gehen.",
+  "hero": {
+    "eyebrow": "Unsere Geschichte",
+    "heading": "Zehn Jahre haben wir in der Fortune-500-Delivery verbracht.",
+    "headingAccent": "Gegangen sind wir wegen des Teils, den niemand abrechnet.",
+    "lede": "Der Code war selten das Problem. Eine Entscheidung herbeizuführen war das Problem. Herauszufinden, warum etwas so gebaut worden war, war das Problem. Und festzustellen, dass die einzige Person, die es verstanden hatte, im März gekündigt hatte.\nWir haben AgenticDraft gegründet, weil wir es leid waren, zuzusehen, wie gute Teams an ihrem eigenen Prozess scheitern."
+  },
+  "chapters": [
+    {
+      "marker": "Woher wir kommen",
+      "title": "Adobe Experience Manager, in Konzerngröße",
+      "body": "Beratung für Fortune-500-Unternehmen, überwiegend auf Adobe Experience Manager und Edge Delivery Services. Enterprise-Webplattformen, Content-Systeme, Design-to-Code-Pipelines, automatisierte Auslieferung. Große Marken, große Budgets und Engineering-Standards, an die die meisten Organisationen nie herankommen."
+    },
+    {
+      "marker": "Was uns aufgefallen ist",
+      "title": "Der Engpass war nie technisch",
+      "body": "Es war die Freigabekette mit elf Namen. Die Architekturentscheidung, die nur in einem Kopf existierte. Die Übergabe, die sich als Kalendereinladung mit einem Repository-Link entpuppte. Arbeit, die zwei Wochen hätte dauern sollen, dauerte ein Quartal — alle Beteiligten sahen es kommen, und niemand konnte es aufhalten."
+    },
+    {
+      "marker": "Warum wir gegangen sind",
+      "title": "Expertise und Overhead wurden zusammen verkauft",
+      "body": "Das war der Punkt, der uns am Ende überzeugt hat. Das Wissen war wert, was Kunden dafür bezahlt haben. Der Apparat darum herum war es nicht — und er war die größere der beiden Rechnungen. Also sind wir gegangen, um herauszufinden, wie das Erste ohne das Zweite aussieht."
+    },
+    {
+      "marker": "Wie wir arbeiten",
+      "title": "Wir arbeiten uns selbst überflüssig",
+      "body": "Die meisten Beratungen sind darauf ausgelegt zu bleiben: Je länger ein Projekt läuft, desto besser für sie. Wir sind darauf ausgelegt zu gehen. Jedes Projekt endet mit Workflows, die Ihr Team ohne uns betreibt, mit Dokumentation, die für jemanden geschrieben ist, der das System nie gesehen hat, und mit einer Codebasis, aus der eine neue Kollegin in ihrer ersten Woche lernen kann."
+    },
+    {
+      "marker": "Für wen",
+      "title": "Fortune-500-Qualität, ohne die Fortune-500-Rechnung",
+      "body": "Enterprise-Standards sind nicht teuer in der Anwendung. Teuer sind sie in der Erarbeitung — und die ist bereits bezahlt. Was wir berechnen, richtet sich nach der Arbeit und nicht nach dem Logo auf der Referenz. So betreibt ein Unternehmen mit überschaubarem Budget am Ende dieselbe Pipeline wie eines mit einem neunstelligen Programm im Rücken."
+    }
+  ],
+  "pullQuote": "Wenn Sie uns in einem Jahr noch brauchen, haben wir etwas falsch gemacht.",
+  "signature": {
+    "note": "Danke, dass Sie bis hierher gelesen haben.",
+    "name": "Das AgenticDraft-Team"
+  },
+  "closing": {
+    "eyebrow": "Zusammenarbeiten",
+    "heading": "Holen Sie uns früh dazu,",
+    "headingAccent": "und planen Sie unseren Abgang ein.",
+    "cta": {
+      "label": "Gespräch starten",
+      "href": "mailto:hello@agenticdraft.com"
+    }
+  }
+}

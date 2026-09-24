@@ -16,4 +16,8 @@ const page = defineCollection({
 	loader: glob({ pattern: '**/*.json', base: 'src/content/page' }),
 });
 
-export const collections = { config, page };
+const story = defineCollection({
+	loader: glob({ pattern: '**/*.json', base: 'src/content/story' }),
+});
+
+export const collections = { config, page, story };
