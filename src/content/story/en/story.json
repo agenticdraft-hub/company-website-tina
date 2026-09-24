@@ -26,7 +26,7 @@
     {
       "marker": "How we work",
       "title": "We build ourselves out of a job",
-      "body": "Most consultancies are structured to stay: the longer an engagement runs, the better it goes for them. We are structured to leave. Every engagement ends with workflows your own team runs without us, documentation written for somebody who has never seen the system, and a codebase a new starter can learn from in their first week."
+      "body": "Most consultancies are structured to stay: the longer an engagement runs, the better it goes for them. We are structured to leave. Every engagement ends with workflows your own team runs without us, documentation written for somebody who has never seen the system, and a codebase a new starter can learn from in their first week.\nStaying on afterwards is on the table, and plenty of teams want it. The difference is that by then it is a choice rather than a dependency."
     },
     {
       "marker": "Who it is for",
@@ -34,7 +34,7 @@
       "body": "Enterprise standards are not expensive to apply. They are expensive to discover — and that discovery has already been paid for. What we charge reflects the work rather than the logo on the case study, which is how a company with a modest budget ends up running the same pipeline as one with a nine-figure programme behind it."
     }
   ],
-  "pullQuote": "If you still need us in a year, we got something wrong.",
+  "pullQuote": "If you still need us in a year, we got something wrong.\nIf you still want us, we got it right.",
   "signature": {
     "note": "Thanks for reading this far.",
     "name": "The AgenticDraft team"
@@ -42,7 +42,7 @@
   "closing": {
     "eyebrow": "Work with us",
     "heading": "Bring us in early,",
-    "headingAccent": "and plan for us to leave.",
+    "headingAccent": "and keep us because you want to.",
     "cta": {
       "label": "Start a conversation",
       "href": "mailto:hello@agenticdraft.com"

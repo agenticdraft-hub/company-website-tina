@@ -26,7 +26,7 @@
     {
       "marker": "Wie wir arbeiten",
       "title": "Wir arbeiten uns selbst überflüssig",
-      "body": "Die meisten Beratungen sind darauf ausgelegt zu bleiben: Je länger ein Projekt läuft, desto besser für sie. Wir sind darauf ausgelegt zu gehen. Jedes Projekt endet mit Workflows, die Ihr Team ohne uns betreibt, mit Dokumentation, die für jemanden geschrieben ist, der das System nie gesehen hat, und mit einer Codebasis, aus der eine neue Kollegin in ihrer ersten Woche lernen kann."
+      "body": "Die meisten Beratungen sind darauf ausgelegt zu bleiben: Je länger ein Projekt läuft, desto besser für sie. Wir sind darauf ausgelegt zu gehen. Jedes Projekt endet mit Workflows, die Ihr Team ohne uns betreibt, mit Dokumentation, die für jemanden geschrieben ist, der das System nie gesehen hat, und mit einer Codebasis, aus der eine neue Kollegin in ihrer ersten Woche lernen kann.\nDanach zu bleiben, steht offen — und viele Teams wollen genau das. Der Unterschied ist, dass es dann eine Entscheidung ist und keine Abhängigkeit."
     },
     {
       "marker": "Für wen",
@@ -34,7 +34,7 @@
       "body": "Enterprise-Standards sind nicht teuer in der Anwendung. Teuer sind sie in der Erarbeitung — und die ist bereits bezahlt. Was wir berechnen, richtet sich nach der Arbeit und nicht nach dem Logo auf der Referenz. So betreibt ein Unternehmen mit überschaubarem Budget am Ende dieselbe Pipeline wie eines mit einem neunstelligen Programm im Rücken."
     }
   ],
-  "pullQuote": "Wenn Sie uns in einem Jahr noch brauchen, haben wir etwas falsch gemacht.",
+  "pullQuote": "Wenn Sie uns in einem Jahr noch brauchen, haben wir etwas falsch gemacht.\nWenn Sie uns dann noch wollen, haben wir es richtig gemacht.",
   "signature": {
     "note": "Danke, dass Sie bis hierher gelesen haben.",
     "name": "Das AgenticDraft-Team"
@@ -42,7 +42,7 @@
   "closing": {
     "eyebrow": "Zusammenarbeiten",
     "heading": "Holen Sie uns früh dazu,",
-    "headingAccent": "und planen Sie unseren Abgang ein.",
+    "headingAccent": "und behalten Sie uns, weil Sie es wollen.",
     "cta": {
       "label": "Gespräch starten",
       "href": "mailto:hello@agenticdraft.com"
